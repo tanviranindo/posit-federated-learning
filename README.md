@@ -124,11 +124,6 @@ docker build -f docker/Dockerfile.arm64 -t posit-fl:arm .
 
 MIT License - use this however you want.
 
-Thanks to:
-- The SoftPosit project for the underlying math library
-- PyTorch team for the ML framework
-- Our testing volunteers who ran experiments on their hardware
-
 ## Questions?
 
 Open an issue if something doesn't work or if you want to know more about how this works.
