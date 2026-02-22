@@ -120,8 +120,19 @@ class CrossArchitectureTrainer:
         """
         logger.info(f"Starting local training on {self.architecture}")
         
-        # Load global model state
-        self.model.load_state_dict(global_model_state)
+        # Implement Algorithm 3: Cross-Architecture Parameter Mapping
+        mapped_state = {}
+        for name, param in global_model_state.items():
+            if name in self.model.state_dict():
+                local_param = self.model.state_dict()[name]
+                if param.shape == local_param.shape:
+                    mapped_state[name] = param.clone()
+                else:
+                    # Slice global parameter down to local client's capacity
+                    slices = tuple(slice(0, dim) for dim in local_param.shape)
+                    mapped_state[name] = param[slices].clone()
+                    
+        self.model.load_state_dict(mapped_state)
         
         # Initialize optimizer
         optimizer = optim.SGD(
@@ -137,6 +148,13 @@ class CrossArchitectureTrainer:
         self.model.train()
         start_time = time.time()
         
+        # Store mapped global params for FedProx proximal regularization
+        global_params = {k: v.clone().to(self.device) for k, v in mapped_state.items()}
+        
+        # Algorithm config
+        algorithm = self.config.get('algorithm', 'fedavg')
+        mu = self.config.get('proximal_mu', 0.01)
+        
         epoch_losses = []
         
         for epoch in range(self.config.get('local_epochs', 5)):
@@ -149,6 +167,15 @@ class CrossArchitectureTrainer:
                 optimizer.zero_grad()
                 output = self.model(data)
                 loss = criterion(output, target)
+                
+                # Add FedProx proximal term
+                if algorithm == 'fedprox':
+                    proximal_term = 0.0
+                    for name, param in self.model.named_parameters():
+                        if name in global_params:
+                            proximal_term += ((param - global_params[name]) ** 2).sum()
+                    loss += (mu / 2.0) * proximal_term
+                
                 loss.backward()
                 optimizer.step()
                 
@@ -165,7 +192,25 @@ class CrossArchitectureTrainer:
         
         logger.info(f"Local training completed in {training_time:.2f}s")
         
-        return self.model.state_dict()
+        # Implement Algorithm 3: Map local parameters back to global representation
+        updated_local_state = self.model.state_dict()
+        final_return_state = {}
+        
+        for name, global_param in global_model_state.items():
+            if name in updated_local_state:
+                local_param = updated_local_state[name]
+                if global_param.shape == local_param.shape:
+                    final_return_state[name] = local_param.clone()
+                else:
+                    # Reconstruct full size: retain global untrained dimensions, overwrite trained dimensions
+                    full_param = global_param.clone()
+                    slices = tuple(slice(0, dim) for dim in local_param.shape)
+                    full_param[slices] = local_param.clone()
+                    final_return_state[name] = full_param
+            else:
+                final_return_state[name] = global_param.clone()
+                
+        return final_return_state
     
     def evaluate_model(self, test_loader: DataLoader) -> Dict[str, float]:
         """
@@ -250,8 +295,9 @@ class FederatedCoordinator:
         self.config = config
         self.round_metrics = []
         
-        # Initialize Posit aggregator (coordinator uses x86_64 config)
-        coordinator_config = create_posit_config_for_architecture("x86_64")
+        # Initialize Posit aggregator dynamically based on config
+        coordinator_arch = config.get('coordinator_arch', 'x86_64')
+        coordinator_config = create_posit_config_for_architecture(coordinator_arch)
         self.aggregator = FederatedPositAggregator(coordinator_config)
         
     def federated_round(self, client_updates: List[Dict[str, torch.Tensor]], 

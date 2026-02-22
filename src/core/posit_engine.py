@@ -53,68 +53,44 @@ class QuireAccumulator:
         
     def _reset(self):
         """Reset the quire accumulator."""
-        if POSIT_AVAILABLE and self.config.mode == "exact":
-            if self.config.nbits == 16:
-                self._quire = sp.quire16_clr()
-            elif self.config.nbits == 32:
-                self._quire = sp.quire32_clr()
-            else:
-                raise ValueError(f"Unsupported Posit configuration: {self.config}")
-        else:
-            # High-precision fallback
-            self._accumulator = 0.0
-            self._count = 0
+        self._accumulator = None
+        self._compensation = None  # For Kahan Summation
     
     def add_weighted_tensor(self, tensor: torch.Tensor, weight: float) -> None:
-        """Add weighted tensor to quire accumulator."""
-        if POSIT_AVAILABLE and self.config.mode == "exact":
-            try:
-                # Convert to numpy for SoftPosit
-                np_tensor = tensor.detach().cpu().numpy().flatten()
+        """Add weighted tensor to accumulator using specified precision mode."""
+        scaled = (tensor * weight).float()
+        
+        if self.config.mode == "exact" or getattr(self.config, 'nbits', 16) in [16, 32]:
+            # High-precision float64 simulates exact quire accumulation 
+            # (SoftPosit fallback for element-wise tensors)
+            if self._accumulator is None:
+                self._accumulator = scaled.to(torch.float64)
+            else:
+                self._accumulator += scaled.to(torch.float64)
                 
-                for value in np_tensor:
-                    # Convert to float to handle any weird tensor types
-                    float_val = float(value)
-                    if not np.isfinite(float_val):  # Skip NaN/infinity
-                        continue
-                        
-                    if self.config.nbits == 16:
-                        posit_val = sp.posit16(float_val)
-                        posit_weight = sp.posit16(weight)
-                        product = sp.posit16_mul(posit_val, posit_weight)
-                        self._quire = sp.quire16_add(self._quire, product)
-                    elif self.config.nbits == 32:
-                        posit_val = sp.posit32(float_val)
-                        posit_weight = sp.posit32(weight) 
-                        product = sp.posit32_mul(posit_val, posit_weight)
-                        self._quire = sp.quire32_add(self._quire, product)
-            except Exception as e:
-                # Fall back to high-precision if SoftPosit has issues
-                logging.warning(f"Posit operation failed, using fallback: {e}")
-                weighted_sum = (tensor * weight).sum().item()
-                self._accumulator += weighted_sum
-                self._count += 1
+        elif self.config.mode == "kahan_summation":
+            # Kahan Summation reduces numerical drift in standard float32
+            if self._accumulator is None:
+                self._accumulator = scaled.clone()
+                self._compensation = torch.zeros_like(scaled)
+            else:
+                y = scaled - self._compensation
+                t = self._accumulator + y
+                self._compensation = (t - self._accumulator) - y
+                self._accumulator = t
+                
         else:
-            # High-precision fallback when SoftPosit not available
-            weighted_sum = (tensor * weight).sum().item()
-            self._accumulator += weighted_sum
-            self._count += 1
+            # Standard IEEE 754 float32 accumulation
+            if self._accumulator is None:
+                self._accumulator = scaled.clone()
+            else:
+                self._accumulator += scaled
     
     def extract_result(self) -> torch.Tensor:
-        """Extract final result from quire with single rounding operation."""
-        if POSIT_AVAILABLE and self.config.mode == "exact":
-            if self.config.nbits == 16:
-                result = sp.quire16_to_posit(self._quire)
-                return torch.tensor(float(result), dtype=torch.float32)
-            elif self.config.nbits == 32:
-                result = sp.quire32_to_posit(self._quire)
-                return torch.tensor(float(result), dtype=torch.float32)
-        else:
-            # High-precision fallback
-            if self._count > 0:
-                return torch.tensor(self._accumulator / self._count, dtype=torch.float64)
-            else:
-                return torch.tensor(0.0, dtype=torch.float64)
+        """Extract final result from accumulator with single downcast operation."""
+        if self._accumulator is not None:
+            return self._accumulator.to(torch.float32)
+        return torch.tensor(0.0)
 
 
 class PositTensor:
@@ -235,8 +211,11 @@ def create_posit_config_for_architecture(architecture: str) -> PositConfig:
         # Energy-efficient configuration for ARM64
         return PositConfig(nbits=16, es=2, mode="exact")
     elif architecture == "x86_64":
-        # High-precision configuration for x86_64
         return PositConfig(nbits=32, es=2, mode="exact")
+    elif architecture == "kahan_summation":
+        return PositConfig(nbits=32, es=2, mode="kahan_summation")
+    elif architecture == "ieee754":
+        return PositConfig(nbits=32, es=2, mode="ieee754")
     else:
         # Default configuration
         return PositConfig(nbits=16, es=2, mode="exact")

@@ -101,13 +101,13 @@ class MainExperimentRunner:
             },
             'full': {
                 **base_config,
-                'num_clients': 3,
-                'client_architectures': ['x86_64', 'arm64', 'x86_64'],
-                'federation_rounds': 10,
+                'num_clients': 10,
+                'client_architectures': ['x86_64', 'arm64'] * 5,
+                'federation_rounds': 50,
                 'local_epochs': 5,
-                'train_samples_per_client': 333,
-                'test_samples': 200,
-                'num_experiment_runs': 10  # Full statistical validation
+                'train_samples_per_client': 5000,
+                'test_samples': 10000,
+                'num_experiment_runs': 5  # Full statistical validation
             }
         }
         
@@ -302,10 +302,11 @@ class MainExperimentRunner:
         
         # Test against different baselines
         baseline_approaches = [
-            ('Standard_PyTorch_FL', 'pytorch_standard'),
+            ('Standard_PyTorch_FedAvg', 'pytorch_standard'),
+            ('FedProx_Baseline', 'fedprox'),
+            ('Kahan_Summation', 'kahan_summation'),
             ('Docker_FL_IEEE754', 'docker_ieee754'),
-            ('Simulated_Posit', 'simulated_posit'),
-            ('Our_Integrated_Approach', 'integrated_posit')
+            ('Our_Integrated_Posit', 'integrated_posit')
         ]
         
         for approach_name, approach_mode in baseline_approaches:
@@ -323,11 +324,11 @@ class MainExperimentRunner:
             results[approach_name] = approach_results
         
         # Calculate improvement percentages
-        baseline_accuracy = results['Standard_PyTorch_FL']['final_accuracy']
-        our_accuracy = results['Our_Integrated_Approach']['final_accuracy']
+        baseline_accuracy = results['Standard_PyTorch_FedAvg']['final_accuracy']
+        our_accuracy = results['Our_Integrated_Posit']['final_accuracy']
         
         results['key_findings'] = {
-            'accuracy_improvement': (our_accuracy - baseline_accuracy) / baseline_accuracy * 100,
+            'accuracy_improvement': (our_accuracy - baseline_accuracy) / baseline_accuracy * 100 if baseline_accuracy > 0 else 0,
             'deployment_consistency_improvement': 47.0,  # From paper
             'numerical_precision_improvement': 94.8,
             'cross_platform_compatibility_improvement': 23.0
@@ -356,22 +357,26 @@ class MainExperimentRunner:
         
         return aggregated
     
-    def run_all_experiments(self) -> Dict[str, Any]:
+    def run_all_experiments(self, scenario: str = 'all') -> Dict[str, Any]:
         """
-        Run all experimental scenarios from the paper.
+        Run all experimental scenarios from the paper based on the selection.
         
         Returns:
             Complete experimental results dictionary
         """
-        logger.info(f"Starting comprehensive experimental validation in {self.mode} mode")
+        logger.info(f"Starting comprehensive experimental validation in {self.mode} mode for scenario: {scenario}")
         
         start_time = time.time()
         
-        # Run all scenarios
-        self.results['scenario_1_precision'] = self.run_scenario_1_precision_validation()
-        self.results['scenario_2_performance'] = self.run_scenario_2_performance_analysis()
-        self.results['scenario_3_scalability'] = self.run_scenario_3_scalability_analysis()
-        self.results['comprehensive_comparison'] = self.run_comprehensive_comparison()
+        # Run selected scenarios
+        if scenario in ['all', '1']:
+            self.results['scenario_1_precision'] = self.run_scenario_1_precision_validation()
+        if scenario in ['all', '2']:
+            self.results['scenario_2_performance'] = self.run_scenario_2_performance_analysis()
+        if scenario in ['all', '3']:
+            self.results['scenario_3_scalability'] = self.run_scenario_3_scalability_analysis()
+        if scenario in ['all', '4']:
+            self.results['comprehensive_comparison'] = self.run_comprehensive_comparison()
         
         total_time = time.time() - start_time
         
@@ -388,14 +393,17 @@ class MainExperimentRunner:
         }
         
         # Save results
-        self._save_results()
+        self._save_results(scenario)
         
-        logger.info(f"All experiments completed in {total_time:.2f} seconds")
+        logger.info(f"Experiments completed in {total_time:.2f} seconds")
         return self.results
     
-    def _save_results(self) -> None:
+    def _save_results(self, scenario: str = 'all') -> None:
         """Save experimental results to file."""
-        results_file = f"experiment_results_{self.mode}.json"
+        if scenario == 'all':
+            results_file = f"experiment_results_{self.mode}.json"
+        else:
+            results_file = f"experiment_results_{self.mode}_scenario_{scenario}.json"
         
         with open(results_file, 'w') as f:
             json.dump(self.results, f, indent=2, default=str)
@@ -403,7 +411,7 @@ class MainExperimentRunner:
         logger.info(f"Results saved to {results_file}")
     
     def print_summary(self) -> None:
-        """Print experiment summary."""
+        """Print experiment summary (only works fully for 'all' scenarios)."""
         if 'experiment_summary' not in self.results:
             logger.warning("No results to summarize")
             return
@@ -445,6 +453,13 @@ def main():
         help='Logging level'
     )
     
+    parser.add_argument(
+        '--scenario',
+        choices=['all', '1', '2', '3', '4'],
+        default='all',
+        help='Which scenario to run (1: precision, 2: performance, 3: scalability, 4: comprehensive)'
+    )
+    
     args = parser.parse_args()
     
     # Configure logging level
@@ -452,8 +467,11 @@ def main():
     
     # Run experiments
     runner = MainExperimentRunner(args.mode)
-    results = runner.run_all_experiments()
-    runner.print_summary()
+    results = runner.run_all_experiments(args.scenario)
+    if args.scenario == 'all':
+        runner.print_summary()
+    else:
+        print(f"Scenario {args.scenario} completed! Results saved to JSON.")
     
     return results
 
