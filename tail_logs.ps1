@@ -1,4 +1,4 @@
-# ==============================================================================
+﻿# ==============================================================================
 # Posit Federated Learning - Tail Logs Dashboard (Windows)
 # ==============================================================================
 # Usage: .\tail_logs.ps1 -Timestamp "20240223_120000"
@@ -21,7 +21,7 @@ if (-not $Timestamp) {
     }
 }
 
-Write-Host "📊 Monitoring All 4 Scenarios..." -ForegroundColor Cyan
+Write-Host "[*] Monitoring All 4 Scenarios..." -ForegroundColor Cyan
 
 # Use Get-Content with -Tail and -Wait
 Get-Content -Path "logs\scenario_*_$Timestamp.log" -Tail 5 -Wait

@@ -1,4 +1,4 @@
-# ==============================================================================
+﻿# ==============================================================================
 # Posit Federated Learning - Pause Parallel Experiments (Windows)
 # ==============================================================================
 # This script suspends the currently running parallel experiments to free up
