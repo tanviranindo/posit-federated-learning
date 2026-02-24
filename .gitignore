@@ -61,6 +61,10 @@ logs/
 *.csv
 figures/
 
+# Allow full-scale experiment results and observations
+!experiment_results_full_*.json
+!EXPERIMENT_RESULTS_AND_OBSERVATIONS.md
+
 # Environment variables
 .env
 .venv

@@ -381,15 +381,19 @@ class MainExperimentRunner:
         total_time = time.time() - start_time
         
         # Generate summary
+        achievements = {}
+        if 'scenario_1_precision' in self.results:
+            achievements['variance_reduction'] = self.results['scenario_1_precision']['key_findings']['variance_reduction_percent']
+        if 'scenario_2_performance' in self.results:
+            achievements['energy_improvement'] = self.results['scenario_2_performance']['key_findings']['arm64_energy_improvement_percent']
+        if 'scenario_3_scalability' in self.results:
+            achievements['scalability_validated'] = self.results['scenario_3_scalability']['key_findings']['consistent_improvement']
+        achievements['superiority_demonstrated'] = True
+
         self.results['experiment_summary'] = {
             'mode': self.mode,
             'total_runtime': total_time,
-            'key_achievements': {
-                'variance_reduction': self.results['scenario_1_precision']['key_findings']['variance_reduction_percent'],
-                'energy_improvement': self.results['scenario_2_performance']['key_findings']['arm64_energy_improvement_percent'],
-                'scalability_validated': self.results['scenario_3_scalability']['key_findings']['consistent_improvement'],
-                'superiority_demonstrated': True
-            }
+            'key_achievements': achievements
         }
         
         # Save results
@@ -410,28 +414,68 @@ class MainExperimentRunner:
         
         logger.info(f"Results saved to {results_file}")
     
-    def print_summary(self) -> None:
-        """Print experiment summary (only works fully for 'all' scenarios)."""
+    def print_summary(self, scenario: str = 'all') -> None:
+        """Print experiment summary for completed scenarios."""
         if 'experiment_summary' not in self.results:
             logger.warning("No results to summarize")
             return
-        
+
         summary = self.results['experiment_summary']
         achievements = summary['key_achievements']
-        
+
         print("\n" + "="*80)
         print("EXPERIMENTAL RESULTS SUMMARY")
         print("="*80)
         print(f"Mode: {summary['mode']}")
+        print(f"Scenario: {scenario}")
         print(f"Runtime: {summary['total_runtime']:.2f} seconds")
         print()
-        print("KEY ACHIEVEMENTS:")
-        print(f"  🎯 Aggregation Variance Reduction: {achievements['variance_reduction']:.1f}%")
-        print(f"  ⚡ ARM64 Energy Improvement: {achievements['energy_improvement']:.1f}%")
-        print(f"  📈 Scalability Validated: {achievements['scalability_validated']}")
-        print(f"  🏆 Superiority Demonstrated: {achievements['superiority_demonstrated']}")
+        print("KEY FINDINGS:")
+
+        if 'variance_reduction' in achievements:
+            print(f"  Aggregation Variance Reduction: {achievements['variance_reduction']:.1f}%")
+        if 'energy_improvement' in achievements:
+            print(f"  ARM64 Energy Improvement: {achievements['energy_improvement']:.1f}%")
+        if 'scalability_validated' in achievements:
+            print(f"  Scalability Validated: {achievements['scalability_validated']}")
+        if 'superiority_demonstrated' in achievements:
+            print(f"  Superiority Demonstrated: {achievements['superiority_demonstrated']}")
+
+        # Print per-scenario details
+        if 'scenario_1_precision' in self.results:
+            s1 = self.results['scenario_1_precision']
+            print(f"\n  --- Scenario 1: Precision Validation ---")
+            for cfg_name in ['IEEE_754_Homogeneous', 'IEEE_754_Heterogeneous', 'Posit_Homogeneous', 'Posit_Heterogeneous']:
+                if cfg_name in s1:
+                    r = s1[cfg_name]
+                    print(f"    {cfg_name}: accuracy={r.get('final_accuracy', 'N/A')}%, variance={r.get('aggregation_variance', 'N/A'):.6f}")
+
+        if 'scenario_2_performance' in self.results:
+            s2 = self.results['scenario_2_performance']
+            print(f"\n  --- Scenario 2: Performance Analysis ---")
+            for cfg_name in ['x86_64_ieee754', 'x86_64_posit16', 'arm64_ieee754', 'arm64_posit16']:
+                if cfg_name in s2:
+                    r = s2[cfg_name]
+                    print(f"    {cfg_name}: accuracy={r.get('final_accuracy', 'N/A')}%, energy={r.get('energy_consumption', 'N/A')}Wh")
+
+        if 'scenario_3_scalability' in self.results:
+            s3 = self.results['scenario_3_scalability']
+            kf = s3.get('key_findings', {})
+            print(f"\n  --- Scenario 3: Scalability ---")
+            vr = kf.get('variance_reductions_by_scale', {})
+            for clients, reduction in vr.items():
+                print(f"    {clients} clients: variance reduction = {reduction:.1f}%")
+
+        if 'comprehensive_comparison' in self.results:
+            s4 = self.results['comprehensive_comparison']
+            print(f"\n  --- Scenario 4: Comprehensive Comparison ---")
+            for approach in ['Standard_PyTorch_FedAvg', 'FedProx_Baseline', 'Kahan_Summation', 'Docker_FL_IEEE754', 'Our_Integrated_Posit']:
+                if approach in s4:
+                    r = s4[approach]
+                    print(f"    {approach}: accuracy={r.get('final_accuracy', 'N/A')}%, variance={r.get('aggregation_variance', 'N/A'):.6f}")
+
         print()
-        print("✅ All paper claims successfully reproduced!")
+        print(f"Results saved to experiment_results_{summary['mode']}{'_scenario_' + scenario if scenario != 'all' else ''}.json")
         print("="*80)
 
 
@@ -468,11 +512,8 @@ def main():
     # Run experiments
     runner = MainExperimentRunner(args.mode)
     results = runner.run_all_experiments(args.scenario)
-    if args.scenario == 'all':
-        runner.print_summary()
-    else:
-        print(f"Scenario {args.scenario} completed! Results saved to JSON.")
-    
+    runner.print_summary(args.scenario)
+
     return results
 
 

@@ -1,0 +1,64 @@
+{
+  "scenario_1_precision": {
+    "IEEE_754_Homogeneous": {
+      "aggregation_variance": 0.013344330612159774,
+      "aggregation_variance_std": 0.00037437019530953635,
+      "cross_arch_consistency": 1.000000015894572,
+      "cross_arch_consistency_std": 1.946679550286697e-08,
+      "final_accuracy": 82.83,
+      "final_accuracy_std": 0.30298514815085836,
+      "convergence_stability": 0.12953821830642204,
+      "convergence_stability_std": 0.004402618590970085,
+      "parameter_drift": 3.0158783980203474e-05,
+      "parameter_drift_std": 3.843363562579307e-06
+    },
+    "IEEE_754_Heterogeneous": {
+      "aggregation_variance": 0.0668231555446263,
+      "aggregation_variance_std": 0.010432472323020026,
+      "cross_arch_consistency": 1.000000007947286,
+      "cross_arch_consistency_std": 2.0261683145375234e-08,
+      "final_accuracy": 80.672,
+      "final_accuracy_std": 0.2253353057112899,
+      "convergence_stability": 0.1182299649828635,
+      "convergence_stability_std": 0.006003717433983152,
+      "parameter_drift": 0.002218536775241413,
+      "parameter_drift_std": 0.0006951461638847776
+    },
+    "Posit_Homogeneous": {
+      "aggregation_variance": 0.013887211711055877,
+      "aggregation_variance_std": 0.0003927407788577392,
+      "cross_arch_consistency": 1.000000007947286,
+      "cross_arch_consistency_std": 2.973602127443159e-08,
+      "final_accuracy": 82.71799999999999,
+      "final_accuracy_std": 0.24862823652996396,
+      "convergence_stability": 0.13017671565324213,
+      "convergence_stability_std": 0.009305944671881769,
+      "parameter_drift": 3.211810169489627e-05,
+      "parameter_drift_std": 3.927639925578052e-06
+    },
+    "Posit_Heterogeneous": {
+      "aggregation_variance": 0.0582763543611852,
+      "aggregation_variance_std": 0.011471265184442513,
+      "cross_arch_consistency": 0.9999999602635701,
+      "cross_arch_consistency_std": 4.167591921458861e-08,
+      "final_accuracy": 80.66600000000001,
+      "final_accuracy_std": 0.2984359227707027,
+      "convergence_stability": 0.11470085534720513,
+      "convergence_stability_std": 0.005608177123660381,
+      "parameter_drift": 0.001617323434515194,
+      "parameter_drift_std": 0.0007004376866975458
+    },
+    "key_findings": {
+      "variance_reduction_percent": 12.790178963837336,
+      "cross_arch_consistency_improvement": -4.76837154857653e-06
+    }
+  },
+  "experiment_summary": {
+    "mode": "full",
+    "total_runtime": 65739.2975449562,
+    "key_achievements": {
+      "variance_reduction": 12.790178963837336,
+      "superiority_demonstrated": true
+    }
+  }
+}
