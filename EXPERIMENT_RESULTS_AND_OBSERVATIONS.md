@@ -122,13 +122,48 @@ This is a systems contribution with measured empirical support. It is honest. It
 
 ---
 
+## B4 Bitwise Reproducibility Experiment (February 26, 2026)
+
+**Setup:** Docker containers on Apple Silicon Mac — ARM64 native, x86_64 via Rosetta 2 emulation. Python 3.9.25, PyTorch 2.1.2 (CPU), single-threaded, identical seeds.
+
+**What we tested:** Whether IEEE 754 float32 sequential weighted-sum aggregation (`result += w_k * tensor_k`) produces different results across ARM64 and x86_64.
+
+**Result: ALL float32 hashes match.** Across 8 scenarios (5/10 clients, float32/float64, model parameter shapes) and 10 random seeds each (80 total comparisons), aggregation output is **bitwise identical** on both ISAs. The float64 control also passes.
+
+| Scenario | Input Match | Output Match | Max ULP Diff |
+|----------|------------|-------------|-------------|
+| 5 clients, float32 | 10/10 | 10/10 | 0 |
+| 10 clients, float32 | 10/10 | 10/10 | 0 |
+| 5 clients, float64 (control) | 10/10 | 10/10 | 0 |
+| 10 clients, float64 (control) | 10/10 | 10/10 | 0 |
+| Model conv1 weight, float32 | 10/10 | 10/10 | 0 |
+| Model conv2 weight, float32 | 10/10 | 10/10 | 0 |
+| Model fc1 weight, float32 | 10/10 | 10/10 | 0 |
+| Model fc1 bias, float32 | 10/10 | 10/10 | 0 |
+
+**Implication:** The 12.79% variance reduction observed in Scenario 1 does NOT come from aggregation rounding differences. The source is local training divergence — BLAS library differences, BatchNorm running statistics, gradient computation, or other training-time non-determinism across architectures.
+
+**What this means for the paper:** The core mechanism claimed in the manuscript (IEEE 754 rounding errors accumulating during aggregation) is wrong. The quire's exact accumulation guarantees are real but do not explain the measured variance reduction. The paper's framing needs correction before resubmission.
+
+See `experiments/results/b4/b4_report.json` for full structured results.
+
+---
+
 ## File Index
 
 | File | Description |
 |---|---|
-| `experiment_results_full_scenario_1.json` | Precision validation: IEEE754 vs Posit16, 4 configs × 5 runs × 50 rounds |
-| `experiment_results_full_scenario_2.json` | Performance: x86_64/ARM64 × ieee754/posit16, energy + timing |
-| `experiment_results_full_scenario_3.json` | Scalability: 2/3/5/8 clients × ieee754/posit16, 50 rounds |
-| `experiment_results_full_scenario_4.json` | Comparison: 5 baselines, 50 rounds, 10 clients |
-| `logs/scenario_X_20260223_19XXXX.log` | Full training logs (UTF-16 encoded, use PowerShell to read) |
-| `run_experiments_parallel.ps1` | Windows automation: runs all 4 scenarios in parallel background processes |
+| `experiments/results/experiment_results_full_scenario_1.json` | Precision validation: IEEE754 vs Posit16, 4 configs x 5 runs x 50 rounds |
+| `experiments/results/experiment_results_full_scenario_2.json` | Performance: x86_64/ARM64 x ieee754/posit16, energy + timing |
+| `experiments/results/experiment_results_full_scenario_3.json` | Scalability: 2/3/5/8 clients x ieee754/posit16, 50 rounds |
+| `experiments/results/experiment_results_full_scenario_4.json` | Comparison: 5 baselines, 50 rounds, 10 clients |
+| `experiments/results/b4/b4_arm64.json` | B4 results from ARM64 container |
+| `experiments/results/b4/b4_x86.json` | B4 results from x86_64 container |
+| `experiments/results/b4/b4_report.json` | B4 structured comparison report |
+| `experiments/b4_bitwise_repro.py` | B4 experiment script (runs inside Docker containers) |
+| `experiments/b4_compare.py` | B4 cross-ISA comparison script |
+| `experiments/Dockerfile.b4` | Minimal Docker image for B4 experiment |
+| `scripts/run_experiments_parallel.*` | Parallel experiment execution (bash + PowerShell) |
+| `scripts/pause_experiments.*` | Pause running experiments |
+| `scripts/resume_experiments.*` | Resume paused experiments |
+| `scripts/tail_logs.ps1` | Live log viewer (Windows) |

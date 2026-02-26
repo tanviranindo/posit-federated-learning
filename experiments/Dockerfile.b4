@@ -1,0 +1,10 @@
+FROM python:3.9-slim
+
+RUN pip install --no-cache-dir torch==2.1.2 --index-url https://download.pytorch.org/whl/cpu \
+    && pip install --no-cache-dir "numpy<2"
+
+COPY experiments/b4_bitwise_repro.py /app/b4_bitwise_repro.py
+
+WORKDIR /app
+
+CMD ["python", "b4_bitwise_repro.py"]

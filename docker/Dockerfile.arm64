@@ -1,39 +1,26 @@
-# Dockerfile for ARM64 Posit-FL Experiments  
+# Dockerfile for ARM64 Posit-FL Experiments
 FROM python:3.9-slim
 
-# Set working directory
 WORKDIR /app
 
-# Install system dependencies optimized for ARM64
 RUN apt-get update && apt-get install -y \
     build-essential \
     cmake \
     git \
-    curl \
-    wget \
-    gcc-aarch64-linux-gnu \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements and install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy source code
 COPY src/ ./src/
 COPY experiments/ ./experiments/
-COPY scripts/ ./scripts/
+COPY main_experiment.py .
 
-# Create necessary directories
 RUN mkdir -p data results logs
 
-# Set environment variables for ARM64
 ENV PYTHONPATH=/app
 ENV ARCHITECTURE=arm64
 ENV DEVICE=cpu
 ENV OPENBLAS_NUM_THREADS=1
 
-# Expose port for monitoring (optional)
-EXPOSE 8888
-
-# Default command
-CMD ["python", "experiments/posit_vs_ieee754_experiment.py"]
+CMD ["python", "main_experiment.py", "--mode", "full"]

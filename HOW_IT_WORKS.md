@@ -1,85 +1,73 @@
 # How Everything Connects
 
-If you're wondering how all the pieces fit together, here's a simple walkthrough.
+## The Problem
 
-## The Problem We're Solving
+Federated learning across heterogeneous hardware (x86_64 servers + ARM64 edge devices) introduces two practical issues:
 
-When you do federated learning across different types of computers (Intel laptops, ARM Raspberry Pis, etc.), the model parameters drift apart because each architecture does floating-point math slightly differently. Over many federation rounds, these tiny differences accumulate and make your training unstable.
+1. **Deployment consistency**: Different architectures need different BLAS libraries, build configurations, and runtime environments. Minor dependency mismatches cause non-reproducible results.
+2. **Training-time numerical divergence**: Local training on different ISAs produces slightly different gradients and running statistics (due to BLAS implementation differences, BatchNorm accumulation, and compiler optimizations), which compound over federation rounds.
 
-## Our Solution in 3 Parts
+**Note:** Our [B4 bitwise reproducibility experiment](experiments/b4_compare.py) showed that the *aggregation step itself* (sequential weighted sum) is bitwise identical across ARM64 and x86_64 in PyTorch. The cross-architecture variance comes from local training differences, not from aggregation rounding.
 
-### 1. The Math Engine (`src/core/posit_engine.py`)
+## Our Approach
 
-Instead of standard floating-point, we use **Posit arithmetic** with something called a "quire":
+### 1. Docker Containerization (`src/docker/`)
+
+Multi-stage Dockerfiles detect the target ISA at build time and produce self-contained environments with locked dependencies. This eliminates deployment inconsistency.
+
+### 2. Posit Arithmetic with Quire Accumulation (`src/core/posit_engine.py`)
+
+The quire data structure provides exact intermediate accumulation during the aggregation step:
 
 ```python
-# Instead of this (accumulates errors):
-result = (model1 + model2 + model3) / 3
+# Standard IEEE 754 aggregation
+# Each addition introduces a rounding error (K-1 total for K clients)
+result = weight1 * model1 + weight2 * model2 + weight3 * model3
 
-# We do this (exact until the end):
+# Quire-based aggregation
+# All additions are exact; only one rounding at extraction
 quire = QuireAccumulator()
-quire.add_exact(model1 * weight1)
-quire.add_exact(model2 * weight2) 
-quire.add_exact(model3 * weight3)
-result = quire.get_final_result()  # Only one rounding step
+quire.add_weighted_tensor(model1, weight1)  # Exact
+quire.add_weighted_tensor(model2, weight2)  # Exact
+quire.add_weighted_tensor(model3, weight3)  # Exact
+result = quire.extract_result()             # Single rounding
 ```
 
-### 2. The Federated Learning Logic (`src/federated/`)
+While B4 showed that IEEE 754 aggregation is already bitwise identical across ISAs for *sequential* weighted sums, the quire approach provides guarantees that hold regardless of summation order, library implementation, or future changes to PyTorch internals. It also reduces the K rounding errors to 1, which matters when accumulating many clients.
 
-The `CrossArchitectureTrainer` automatically detects what type of computer it's running on and adapts:
+### 3. Architecture-Adaptive Models (`src/models/adaptive_cnn.py`)
 
-- **Intel/AMD**: Uses full model complexity for best accuracy
-- **ARM (Raspberry Pi)**: Uses smaller model for energy efficiency
-- **Both**: Uses Posit math for consistent results
+The CNN automatically adapts to the target hardware:
+- **x86_64**: 32-64-128 channels, 1.28M parameters (full capacity)
+- **ARM64**: 16-32-64 channels, 320K parameters (energy-efficient)
 
-### 3. The Deployment (`src/docker/`)
+Parameter mapping handles the size mismatch during aggregation (global model parameters are sliced/padded per architecture).
 
-Docker containers that automatically build differently for each architecture but run the same federated learning code.
+## What Happens in a Federation Round
 
-## What Happens When You Run It
+1. **Architecture Detection**: Each client identifies its ISA via `platform.machine()`
+2. **Model Adaptation**: Network size adjusted for the hardware
+3. **Local Training**: Standard SGD on local CIFAR-10 partition
+4. **Parameter Upload**: Client sends model updates to server
+5. **Quire Aggregation**: Server combines updates with exact arithmetic
+6. **Global Distribution**: Updated model sent back to all clients
 
-1. **Architecture Detection**: Each client figures out if it's Intel or ARM
-2. **Model Adaptation**: Adjusts neural network size for the hardware
-3. **Local Training**: Trains on local data (normal PyTorch stuff)
-4. **Posit Aggregation**: Server combines updates using exact arithmetic
-5. **Repeat**: Models stay aligned across federation rounds
+## Key Files
 
-## The Key Insight
+| File | Purpose |
+|------|---------|
+| `main_experiment.py` | Entry point (demo/quick/full modes) |
+| `src/core/posit_engine.py` | Posit config, quire accumulator |
+| `src/federated/cross_arch_trainer.py` | Per-client trainer with arch detection |
+| `src/federated/posit_fedavg.py` | Posit-enhanced FedAvg |
+| `src/models/adaptive_cnn.py` | Architecture-adaptive CNN |
+| `experiments/b4_bitwise_repro.py` | Bitwise reproducibility test |
+| `experiments/b4_compare.py` | Cross-ISA comparison |
 
-Traditional approach:
-```
-Client 1 (Intel) → [rounding] → Server → [rounding] → Global Model
-Client 2 (ARM)   → [rounding] →   ↑    → [rounding] →      ↑
-Client 3 (Intel) → [rounding] →   ↑    → [rounding] →      ↑
-                                  ↑                         ↑
-                            Errors accumulate!         Unstable!
-```
+## What We Measured
 
-Our approach:
-```
-Client 1 (Intel) → [Posit] → Server (Quire) → [Single rounding] → Stable Model
-Client 2 (ARM)   → [Posit] →   ↑   ↑   ↑   →        ↑         →      ↑
-Client 3 (Intel) → [Posit] →   Exact math   →        ↑         →      ↑
-                              until the end →    Precise!     → Reliable!
-```
-
-## Files You Care About
-
-- **`main_experiment.py`**: Run this to see the difference
-- **`src/core/posit_engine.py`**: The math that makes it work
-- **`src/federated/cross_arch_trainer.py`**: Federated learning with auto-adaptation
-- **`src/models/adaptive_cnn.py`**: Neural networks that adapt to your hardware
-- **`docker/`**: Containers for easy deployment
-
-## Try It
-
-```bash
-# Quick demo (2 minutes)
-python main_experiment.py --mode demo
-
-# You'll see something like:
-# IEEE 754 training: Models drift apart (high variance)
-# Posit training: Models stay aligned (low variance)
-```
-
-The numbers don't lie - Posit arithmetic makes federated learning about 95% more stable when you're mixing different computer architectures.
+- **12.8% variance reduction** in heterogeneous (mixed x86_64 + ARM64) deployments
+- **8.3% energy savings** on ARM64
+- **0.98 deployment consistency** (vs 0.52 for standard FedAvg)
+- **Comparable accuracy**: 83.92% vs 84.70% for best baseline (within 1%)
+- **Client threshold**: Posit benefits appear at 5+ clients; at 2-3 clients, parameter mapping overhead dominates
