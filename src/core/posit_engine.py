@@ -59,17 +59,16 @@ class QuireAccumulator:
     def add_weighted_tensor(self, tensor: torch.Tensor, weight: float) -> None:
         """Add weighted tensor to accumulator using specified precision mode."""
         scaled = (tensor * weight).float().to(tensor.device)
-        
-        if self.config.mode == "exact" or getattr(self.config, 'nbits', 16) in [16, 32]:
-            # High-precision float64 simulates exact quire accumulation 
-            # (SoftPosit fallback for element-wise tensors)
+
+        if self.config.mode == "exact":
+            # float64 simulates quire exact accumulation (single rounding at extraction)
             if self._accumulator is None:
                 self._accumulator = scaled.to(torch.float64)
             else:
                 self._accumulator += scaled.to(torch.float64).to(self._accumulator.device)
-                
+
         elif self.config.mode == "kahan_summation":
-            # Kahan Summation reduces numerical drift in standard float32
+            # Kahan summation reduces numerical drift in standard float32
             if self._accumulator is None:
                 self._accumulator = scaled.clone()
                 self._compensation = torch.zeros_like(scaled).to(tensor.device)
@@ -78,9 +77,9 @@ class QuireAccumulator:
                 t = self._accumulator.to(y.device) + y
                 self._compensation = (t - self._accumulator.to(y.device)) - y
                 self._accumulator = t
-                
+
         else:
-            # Standard IEEE 754 float32 accumulation
+            # Standard IEEE 754 float32 accumulation (mode="ieee754")
             if self._accumulator is None:
                 self._accumulator = scaled.clone()
             else:
@@ -133,8 +132,9 @@ class PositTensor:
 class FederatedPositAggregator:
     """
     Federated learning aggregator with Posit arithmetic integration.
-    
-    Implements Algorithm 3 from the paper with exact quire-based accumulation.
+
+    Implements Algorithm 2 (Posit-Enhanced Federated Aggregation) from the paper
+    with quire-based accumulation approximated via IEEE 754 float64.
     """
     
     def __init__(self, config: PositConfig):
