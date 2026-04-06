@@ -6,8 +6,8 @@ This module implements the Docker-based cross-architecture federated learning
 trainer with integrated Posit arithmetic support.
 
 Authors: Tanvir Rahman, Annajiat Alim Rasel
-Paper: "Posit-Enhanced Docker-based Federated Learning: Bridging Numerical Precision 
-       and Cross-Architecture Deployment in IoT Systems"
+Paper: "Where Does Cross-Architecture Divergence Originate in Federated Learning?
+       An Empirical Study with Docker Deployment and Posit Arithmetic"
 """
 
 import os
@@ -345,14 +345,10 @@ class FederatedCoordinator:
         }
     
     def _calculate_variance_reduction(self, variances: List[float]) -> float:
-        """Calculate variance reduction compared to what we typically see with IEEE 754."""
-        if not variances:
-            return 0.0
-        
-        # This is what we observed when testing standard PyTorch federated learning
-        # across Intel and ARM hardware - parameters drift quite a bit
-        baseline_variance = 2.41e-4  # Measured from our Intel i7 + Raspberry Pi tests
-        current_variance = np.mean(variances)
-        
-        reduction = (baseline_variance - current_variance) / baseline_variance * 100
-        return max(0.0, reduction)  # Ensure non-negative
+        """
+        Variance reduction relative to a provided baseline.
+
+        Returns 0.0 — use ComprehensiveResultsAnalyzer (src/utils/metrics.py)
+        to compare Posit vs IEEE 754 across matched experimental runs.
+        """
+        return 0.0
