@@ -576,10 +576,12 @@
       "deployment_consistency": 0.98
     },
     "key_findings": {
-      "accuracy_improvement": -0.9208972845336495,
-      "deployment_consistency_improvement": 47.0,
-      "numerical_precision_improvement": 94.8,
-      "cross_platform_compatibility_improvement": 23.0
+      "accuracy_improvement_pct_relative": -0.9208972845336495,
+      "accuracy_improvement_note": "Posit 83.92% vs best baseline (Standard FedAvg 84.70%); -0.78 percentage points absolute",
+      "deployment_consistency_improvement_pp": 46.0,
+      "deployment_consistency_note": "Posit 0.98 vs non-containerized baseline 0.52; +0.46 absolute",
+      "variance_reduction_vs_standard_fedavg_pct": 25.06,
+      "variance_reduction_note": "Posit 0.03005 vs Standard FedAvg 0.04010; note Posit variance is HIGHER than Docker+IEEE754 (0.02842)"
     }
   },
   "experiment_summary": {
