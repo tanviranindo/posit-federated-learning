@@ -142,12 +142,16 @@ def main():
 
     seeds = list(range(42, 52))  # 10 seeds: 42..51
 
-    # Model parameter shapes from AdaptiveCNN (ARM64 config: smaller model)
+    # Representative AdaptiveCNN parameter shapes used for bitwise testing.
+    # conv1/conv2 use x86_64 channel widths (32, 64); ARM64 widths are (16, 32).
+    # fc1_weight (128, 256) is a reduced-size proxy; actual x86_64 fc1 is (512, 2048)
+    # and ARM64 fc1 is (256, 1024). These shapes test the aggregation operation
+    # at a representative scale without requiring the full model in memory.
     model_shapes = {
-        "conv1_weight": (32, 3, 3, 3),      # First conv layer
-        "conv2_weight": (64, 32, 3, 3),      # Second conv layer
-        "fc1_weight": (128, 256),            # First FC layer
-        "fc1_bias": (128,),                  # Bias vector
+        "conv1_weight": (32, 3, 3, 3),      # x86_64 first conv layer shape
+        "conv2_weight": (64, 32, 3, 3),      # x86_64 second conv layer shape
+        "fc1_weight": (128, 256),            # Proxy FC shape (see comment above)
+        "fc1_bias": (128,),                  # Proxy bias vector
     }
 
     scenarios = []
