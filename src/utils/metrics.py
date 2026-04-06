@@ -106,17 +106,17 @@ class StatisticalAnalyzer:
 class PrecisionMetricsCalculator:
     """
     Calculates numerical precision metrics as described in the paper.
-    
-    Implements the key metrics that demonstrate 94.8% variance reduction
-    and other precision improvements.
+
+    Primary metric: aggregation variance reduction of Posit vs IEEE 754.
+    Measured heterogeneous reduction: 12.8% at 10 clients.
     """
     
     @staticmethod
     def calculate_aggregation_variance(federated_results: List[Dict[str, Any]]) -> Dict[str, float]:
         """
         Calculate aggregation variance across multiple experimental runs.
-        
-        This is the primary metric demonstrating 94.8% improvement.
+
+        Returns mean variance, std, and 95% CI across runs.
         """
         variances = [r['aggregation_variance'] for r in federated_results if 'aggregation_variance' in r]
         
@@ -145,7 +145,7 @@ class PrecisionMetricsCalculator:
             return {'mean_consistency': 0.0, 'improvement': 0.0}
             
         mean_consistency = np.mean(consistencies)
-        baseline_consistency = 0.8394  # IEEE 754 baseline from paper
+        baseline_consistency = 0.52  # Non-containerized IEEE 754 baseline (Scenario 4)
         improvement = (mean_consistency - baseline_consistency) / baseline_consistency * 100
         
         return {
@@ -200,13 +200,8 @@ class PerformanceMetricsCalculator:
         # Calculate ARM64 energy improvement (8.3% from paper)
         if 'arm64' in analysis and 'x86_64' in analysis:
             arm64_energy = analysis['arm64']['mean_energy']
-            x86_energy = analysis['x86_64']['mean_energy']
-            
-            # Posit vs IEEE comparison for ARM64
             analysis['arm64_improvement'] = {
-                'energy_reduction_percent': 8.3,  # From paper
-                'baseline_energy': arm64_energy / 0.917,  # Reverse calculate baseline
-                'optimized_energy': arm64_energy
+                'mean_energy': arm64_energy,
             }
             
         return analysis
@@ -275,8 +270,6 @@ class ComprehensiveResultsAnalyzer:
             'consistency_improvement': posit_consistency['improvement_percent'],
             'ieee_consistency': ieee_consistency,
             'posit_consistency': posit_consistency,
-            'target_variance_reduction': 94.8,  # Paper claim
-            'achieved_target': abs(variance_reduction - 94.8) < 2.0  # Within 2% tolerance
         }
     
     def analyze_performance_scenario(self, x86_results: List[Dict], 
@@ -294,8 +287,6 @@ class ComprehensiveResultsAnalyzer:
         return {
             'energy_analysis': energy_analysis,
             'arm64_energy_improvement': energy_analysis.get('arm64_improvement', {}),
-            'deployment_success_rate': 98.7,  # From paper
-            'cross_platform_compatibility': 100.0
         }
     
     def generate_comprehensive_report(self, all_results: Dict[str, List[Dict]]) -> Dict[str, Any]:
@@ -319,11 +310,7 @@ class ComprehensiveResultsAnalyzer:
             )
             report['precision_analysis'] = precision_analysis
             
-            # Validate 94.8% claim
-            report['paper_claims_validation']['variance_reduction_claim'] = {
-                'claimed': 94.8,
-                'achieved': precision_analysis['variance_reduction_percent'],
-                'validated': precision_analysis['achieved_target']
-            }
+            report['paper_claims_validation']['variance_reduction_percent'] = \
+                precision_analysis['variance_reduction_percent']
         
         return report
