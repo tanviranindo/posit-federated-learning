@@ -69,5 +69,5 @@ Parameter mapping handles the size mismatch during aggregation (global model par
 - **12.8% variance reduction** in heterogeneous (mixed x86_64 + ARM64) deployments
 - **8.3% energy savings** on ARM64
 - **0.98 deployment consistency** (vs 0.52 for standard FedAvg)
-- **Comparable accuracy**: 83.92% vs 84.70% for best baseline (within 1%)
+- **Comparable accuracy**: 83.92% vs 84.70% for best baseline (−0.78 pp)
 - **Client threshold**: Posit benefits appear at 5+ clients; at 2-3 clients, parameter mapping overhead dominates

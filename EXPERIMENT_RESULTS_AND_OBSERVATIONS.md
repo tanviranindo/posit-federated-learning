@@ -108,7 +108,7 @@ The paper cannot claim universal variance reduction. The finding is: "benefits e
 
 The paper's core value is not "Posit is always better than IEEE754 in FL." The real contribution is:
 
-> A complete, working, Docker-deployed federated learning system that integrates Posit arithmetic for cross-architecture heterogeneous environments, with empirically validated energy savings (8.3% on ARM64), comparable accuracy to all baselines (within 1%), and significantly higher deployment consistency (0.98 vs 0.52) — with an identified client-count threshold (≥5) beyond which numerical aggregation benefits become measurable.
+> A complete, working, Docker-deployed federated learning system that integrates Posit arithmetic for cross-architecture heterogeneous environments, with empirically validated energy savings (8.3% on ARM64), comparable accuracy to all baselines (within 1.5 percentage points), and significantly higher deployment consistency (0.98 vs 0.52) — with an identified client-count threshold (≥5) beyond which numerical aggregation benefits become measurable.
 
 This is a systems contribution with measured empirical support. It is honest. It is publishable at Cluster Computing (Q1, no APC) if framed correctly.
 

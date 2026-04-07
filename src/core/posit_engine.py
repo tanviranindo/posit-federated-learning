@@ -40,11 +40,13 @@ class PositConfig:
 
 class QuireAccumulator:
     """
-    The magic behind stable federated learning across different architectures.
-    
-    Think of this as a super-precise calculator that can add up many numbers
-    exactly and only introduces rounding at the very end, instead of rounding
-    after every single operation like normal floating-point math does.
+    Accumulates weighted tensors using deferred-rounding arithmetic.
+
+    In "exact" mode, intermediate sums are held in float64 and downcast to
+    float32 only at extract_result(), simulating posit quire behaviour where
+    a single rounding occurs at the end of accumulation rather than after each
+    addition.  "kahan_summation" applies Kahan compensated summation in
+    float32.  "ieee754" uses standard float32 accumulation.
     """
     
     def __init__(self, config: PositConfig):
@@ -96,8 +98,8 @@ class PositTensor:
     """
     PyTorch tensor wrapper with Posit arithmetic operations.
     
-    Provides seamless integration with existing PyTorch workflows while
-    enabling exact Posit arithmetic for critical federated operations.
+    Wraps a PyTorch tensor with a PositConfig and exposes quire-based weighted
+    aggregation used during federated model merging.
     """
     
     def __init__(self, tensor: torch.Tensor, config: PositConfig):

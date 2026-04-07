@@ -11,7 +11,7 @@ Full-scale experiments: 50 rounds, 10 clients (5 x86_64 + 5 ARM64), CIFAR-10, Do
 
 | Metric | Standard FedAvg | Our Method | Notes |
 |--------|----------------|------------|-------|
-| Accuracy | 84.70% | 83.92% | Comparable (within 1%) |
+| Accuracy | 84.70% | 83.92% | Comparable (−0.78 pp) |
 | Aggregation Variance | 0.0668 | 0.0583 | 12.8% reduction (heterogeneous) |
 | Deployment Consistency | 0.52 | 0.98 | Highest across all baselines |
 | ARM64 Energy | 0.195 Wh | 0.179 Wh | 8.3% savings |
