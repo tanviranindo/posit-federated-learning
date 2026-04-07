@@ -116,7 +116,6 @@
       "total_training_time": 11764.796993494034,
       "energy_consumption": 0.278,
       "memory_efficiency": 0.85,
-      "deployment_success_rate": 98.7,
       "communication_overhead": 0.88
     },
     "x86_64_posit16": {
@@ -235,7 +234,6 @@
       "total_training_time": 11733.109441280365,
       "energy_consumption": 0.278,
       "memory_efficiency": 0.85,
-      "deployment_success_rate": 98.7,
       "communication_overhead": 0.88
     },
     "arm64_ieee754": {
@@ -354,7 +352,6 @@
       "total_training_time": 11543.348248243332,
       "energy_consumption": 0.195,
       "memory_efficiency": 0.85,
-      "deployment_success_rate": 98.7,
       "communication_overhead": 0.88
     },
     "arm64_posit16": {
@@ -473,13 +470,10 @@
       "total_training_time": 8833.00258564949,
       "energy_consumption": 0.178815,
       "memory_efficiency": 0.85,
-      "deployment_success_rate": 98.7,
       "communication_overhead": 0.88
     },
     "key_findings": {
-      "arm64_energy_improvement_percent": 8.300000000000002,
-      "deployment_success_rate": 98.7,
-      "cross_platform_compatibility": 100.0
+      "arm64_energy_improvement_percent": 8.300000000000002
     }
   },
   "experiment_summary": {

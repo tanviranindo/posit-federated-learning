@@ -185,7 +185,7 @@ class MainExperimentRunner:
         """
         Run Scenario 2: Performance and Deployment Analysis
         
-        This reproduces Table II results showing energy efficiency gains.
+        Measures energy consumption and training time across architectures (Scenario 2).
         """
         logger.info("Running Scenario 2: Performance and Deployment Analysis")
         
@@ -228,8 +228,6 @@ class MainExperimentRunner:
         
         results['key_findings'] = {
             'arm64_energy_improvement_percent': energy_improvement,
-            'deployment_success_rate': 98.7,  # From paper
-            'cross_platform_compatibility': 100.0
         }
         
         logger.info(f"Scenario 2 completed. ARM64 energy improvement: {energy_improvement:.1f}%")
@@ -239,8 +237,8 @@ class MainExperimentRunner:
         """
         Run Scenario 3: Scalability Analysis
         
-        This reproduces Table III results showing consistent benefits
-        across different client counts.
+        Tests variance and accuracy at 2, 3, 5, 8 clients (Scenario 3).
+        Note: Posit benefits are only consistent at >=5 clients.
         """
         logger.info("Running Scenario 3: Scalability Analysis")
         
@@ -293,7 +291,7 @@ class MainExperimentRunner:
         """
         Run comprehensive comparison with existing approaches.
         
-        This reproduces Figure 3 results showing superiority over baselines.
+        Compares five approaches: Standard FedAvg, FedProx, Kahan, Docker-IEEE754, Posit (Scenario 4).
         """
         logger.info("Running Comprehensive Comparison")
         
@@ -328,10 +326,7 @@ class MainExperimentRunner:
         our_accuracy = results['Our_Integrated_Posit']['final_accuracy']
         
         results['key_findings'] = {
-            'accuracy_improvement': (our_accuracy - baseline_accuracy) / baseline_accuracy * 100 if baseline_accuracy > 0 else 0,
-            'deployment_consistency_improvement': 47.0,  # From paper
-            'numerical_precision_improvement': 94.8,
-            'cross_platform_compatibility_improvement': 23.0
+            'accuracy_delta_pct': (our_accuracy - baseline_accuracy) / baseline_accuracy * 100 if baseline_accuracy > 0 else 0,
         }
         
         logger.info(f"Comprehensive comparison completed")

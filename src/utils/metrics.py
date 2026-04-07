@@ -250,7 +250,7 @@ class ComprehensiveResultsAnalyzer:
         """
         Analyze Scenario 1: Numerical Precision Validation.
         
-        Reproduces Table I results showing 94.8% variance reduction.
+        Computes variance reduction from measured IEEE754 and Posit results (Scenario 1).
         """
         # Calculate variance reduction
         ieee_variance = self.precision_calc.calculate_aggregation_variance(ieee_results)
@@ -277,7 +277,7 @@ class ComprehensiveResultsAnalyzer:
         """
         Analyze Scenario 2: Performance and Deployment Analysis.
         
-        Reproduces Table II energy efficiency results.
+        Analyzes Scenario 2 energy efficiency and training time results.
         """
         energy_analysis = self.performance_calc.analyze_energy_efficiency({
             'x86_64': x86_results,

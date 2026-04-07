@@ -33,8 +33,9 @@ class ComprehensiveResearchExperiment:
     """
     Implements all experimental scenarios from the research paper.
     
-    Provides reproducible experiments that validate the 94.8% variance
-    reduction and other key claims through rigorous statistical analysis.
+    Implements all four experimental scenarios from the paper.
+    Measured variance reduction: 12.79% (heterogeneous, Scenario 1).
+    See EXPERIMENT_RESULTS_AND_OBSERVATIONS.md for full results.
     """
     
     def __init__(self, config: Dict[str, Any]):
@@ -150,7 +151,6 @@ class ComprehensiveResearchExperiment:
             'total_training_time': time.time() - start_time,
             'energy_consumption': self._estimate_energy_consumption(),
             'memory_efficiency': self._measure_memory_efficiency(),
-            'deployment_success_rate': 98.7,  # From paper
             'communication_overhead': self._calculate_communication_overhead()
         })
         
@@ -241,7 +241,7 @@ class ComprehensiveResearchExperiment:
         
     def _calculate_aggregation_variance(self, client_updates: List[Dict]) -> float:
         """
-        Calculate aggregation variance - key metric for 94.8% improvement claim.
+        Calculate mean parameter-wise variance across client updates.
         """
         if len(client_updates) < 2:
             return 0.0
