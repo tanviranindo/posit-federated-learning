@@ -3,6 +3,11 @@ name: xisa-pilot
 # Runs the cross-ISA divergence pilot natively on GitHub-hosted runners
 # (x86_64 and arm64, Linux/Windows/macOS) and uploads the raw results.
 on:
+  # workflow_dispatch only works once this file is on the default branch, so
+  # pushes to the revision branch also start a run.
+  push:
+    branches: [revision/real-hardware-study]
+    paths: [experiments/xisa/**, .github/workflows/xisa-pilot.yml]
   workflow_dispatch:
     inputs:
       rounds:
@@ -41,7 +46,7 @@ jobs:
       - name: Run pilot
         env:
           PY: python
-          ROUNDS: ${{ inputs.rounds }}
+          ROUNDS: ${{ inputs.rounds || '20' }}
           TAG: gha-${{ matrix.runner }}
         run: bash experiments/xisa/run_pilot.sh
       - uses: actions/upload-artifact@v4

@@ -18,9 +18,9 @@ TAG_ARGS=()
 
 "$PY" experiments/xisa/prepare_data.py
 cd experiments/xisa
-"$PY" op_probe.py --threads 1 "${TAG_ARGS[@]}"
-"$PY" op_probe.py --threads "$NPROC" "${TAG_ARGS[@]}"
-"$PY" fl_trajectory.py --threads 1 --rounds "$ROUNDS" "${TAG_ARGS[@]}"
-"$PY" fl_trajectory.py --threads 1 --rounds "$ROUNDS" --label _rep "${TAG_ARGS[@]}"
-"$PY" fl_trajectory.py --threads "$NPROC" --rounds "$ROUNDS" "${TAG_ARGS[@]}"
-"$PY" fl_trajectory.py --threads 1 --rounds "$ROUNDS" --order-seed 8 "${TAG_ARGS[@]}"
+"$PY" op_probe.py --threads 1 ${TAG_ARGS[@]+"${TAG_ARGS[@]}"}
+"$PY" op_probe.py --threads "$NPROC" ${TAG_ARGS[@]+"${TAG_ARGS[@]}"}
+"$PY" fl_trajectory.py --threads 1 --rounds "$ROUNDS" ${TAG_ARGS[@]+"${TAG_ARGS[@]}"}
+"$PY" fl_trajectory.py --threads 1 --rounds "$ROUNDS" --label _rep ${TAG_ARGS[@]+"${TAG_ARGS[@]}"}
+"$PY" fl_trajectory.py --threads "$NPROC" --rounds "$ROUNDS" ${TAG_ARGS[@]+"${TAG_ARGS[@]}"}
+"$PY" fl_trajectory.py --threads 1 --rounds "$ROUNDS" --order-seed 8 ${TAG_ARGS[@]+"${TAG_ARGS[@]}"}

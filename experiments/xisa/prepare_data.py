@@ -46,8 +46,12 @@ def main() -> None:
     ap.add_argument("--out", type=Path, default=root / "data" / "xisa_cifar10.npz")
     ap.add_argument("--train", type=int, default=5000)
     ap.add_argument("--test", type=int, default=2000)
+    ap.add_argument("--force", action="store_true", help="rebuild even if --out exists")
     args = ap.parse_args()
 
+    if args.out.exists() and not args.force:
+        print(f"{args.out} exists; skipping (use --force to rebuild)")
+        return
     if not args.tar.exists():
         args.tar.parent.mkdir(parents=True, exist_ok=True)
         print(f"downloading {URL}")
