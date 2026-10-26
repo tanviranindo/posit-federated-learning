@@ -1,0 +1,181 @@
+{
+  "env": {
+    "machine": "aarch64",
+    "system": "Linux",
+    "cpu": "0xd49",
+    "python": "3.12.15",
+    "torch": "2.9.1+cpu",
+    "numpy": "2.3.5",
+    "blas": "open",
+    "cpu_capability": "DEFAULT",
+    "mkldnn": true,
+    "threads": 1,
+    "in_container": false
+  },
+  "args": {
+    "threads": 1,
+    "rounds": 20,
+    "clients": 10,
+    "epochs": 1,
+    "batch": 32,
+    "lr": 0.01,
+    "order_seed": 8,
+    "save_rounds": "0,1,2,5,10,20",
+    "replay_clients": "0,1",
+    "label": "",
+    "data": "data/xisa_cifar10.npz",
+    "out": "experiments/results/xisa",
+    "tag": "gha-ubuntu-24.04-arm"
+  },
+  "input_hash": "a9f1a6c273997b682b3c0123cfb58aba0cc57cc10f701a84fc3bc3fd3360a57f",
+  "split_seed": 99,
+  "history": [
+    {
+      "round": 0,
+      "state_hash": "0f6db7d31f8e0d64b7eb42930906dfc6c6abc757f892c5fad6ddacea43d42db7",
+      "logits_hash": "90f1ecc9331736c47b93fe0abe352c32ecae46a7909a95013682f4326af69ec4",
+      "accuracy": 0.0925,
+      "elapsed_s": 1.33
+    },
+    {
+      "round": 1,
+      "state_hash": "3febcf8d177f8a4516551ad507e627bb8ef1666bb6ac288a77234fb869f4906d",
+      "logits_hash": "1fd09e2e37f0aade0d46ab4c41fc0230a70b6a3ef6a0ec66674285cd177e72cd",
+      "accuracy": 0.285,
+      "elapsed_s": 16.08
+    },
+    {
+      "round": 2,
+      "state_hash": "f6e61812d399b4c5105e643389c4297b487d790e8e6afeb967823d1bf709547e",
+      "logits_hash": "930a85057dd58821bdc14c99c498bb10549799e287d851b0e1b3a10f3cc0fd2b",
+      "accuracy": 0.3285,
+      "elapsed_s": 30.18
+    },
+    {
+      "round": 3,
+      "state_hash": "93053a3cf31e3abeb5a61d6bc4265687ab6d1ddc971a04392ac814ad9757ea9a",
+      "logits_hash": "4687860d40334e5e6a3f8637eca0b88ff6ebab5471237770cfcf481916723f9a",
+      "accuracy": 0.3675,
+      "elapsed_s": 44.32
+    },
+    {
+      "round": 4,
+      "state_hash": "d959b0bb73c9190b9c81329f2ff3d99ab7c8f61ae2b82f409a611b4d3161d480",
+      "logits_hash": "52fc5f971388dc70c1b094f0d059218595af17985c538aa5a74bead3a7c347e1",
+      "accuracy": 0.3855,
+      "elapsed_s": 58.46
+    },
+    {
+      "round": 5,
+      "state_hash": "94a406692bb2e8f1ffb0799c66b30f2acc98e99f33b938b2945a1b580f8d5bdf",
+      "logits_hash": "9129f188bc6ed5d9e7ec831dbc8597634e6d4fd069b4ca8fee18b66eae66060f",
+      "accuracy": 0.412,
+      "elapsed_s": 72.64
+    },
+    {
+      "round": 6,
+      "state_hash": "40b6baa410dbeb3204749315b89699f623ba848893180e86622bf23e62aafbad",
+      "logits_hash": "d8c504009026b9e80534d7c7300227042174205a50758aa890ac70e7354d518d",
+      "accuracy": 0.427,
+      "elapsed_s": 86.88
+    },
+    {
+      "round": 7,
+      "state_hash": "883b77633650120130f4f4ef820319b31eb8a1c26b5f4754ebbbd0ab0d164ed3",
+      "logits_hash": "c8886f8d37ed981cc81e0cca7eba19d7f24925282dbeeff6474534c529d9e57b",
+      "accuracy": 0.449,
+      "elapsed_s": 101.08
+    },
+    {
+      "round": 8,
+      "state_hash": "15c0b4edb59a5fbcb2d0dea1958e3eecb435aa1084f9fcdedd31a071e8e9159b",
+      "logits_hash": "619b60ce17ec7040276841286c838ce10981d35e5f14d20543a7e8f9964c4a1b",
+      "accuracy": 0.455,
+      "elapsed_s": 115.49
+    },
+    {
+      "round": 9,
+      "state_hash": "7122c0069533418de5c8ed56a4a1c5d40ab7dd31ab2d5fc25da7f47482740376",
+      "logits_hash": "f2a8abf4075132cdf5b00bac0ea9ac30c3fe4c8fe6783223973a5c049033e3bb",
+      "accuracy": 0.4795,
+      "elapsed_s": 129.89
+    },
+    {
+      "round": 10,
+      "state_hash": "83a24230335e000c9b1f78dd3deeaa12f3b2dd89e6f80a5a5fee16db1e9b5d56",
+      "logits_hash": "8b73c22f83290c288e8af07321f802a01409307526f4b7108c2e0b7baea4333c",
+      "accuracy": 0.477,
+      "elapsed_s": 144.21
+    },
+    {
+      "round": 11,
+      "state_hash": "76194e347ebc5e3f8e78f5271adbbebb7d578238548b7d848fbbb2e39138d103",
+      "logits_hash": "0a4ff7d9ea65f3d4a083685a210c9cc352ebd4b07bc31abf35f36234cffb0f6b",
+      "accuracy": 0.4925,
+      "elapsed_s": 158.36
+    },
+    {
+      "round": 12,
+      "state_hash": "39e32bccd2f1a029eef12a970cdecf36ba8fbe52465029d7dbbd4421a2746499",
+      "logits_hash": "e05097f16c35298fe67188e6b1ac0f4d3b1dba62386846ccaf1963b4300c91db",
+      "accuracy": 0.5025,
+      "elapsed_s": 172.42
+    },
+    {
+      "round": 13,
+      "state_hash": "cf3d5dc653173f41e0bcc5da4f41939529710cae56242cde2f639769b66b28b7",
+      "logits_hash": "a4ce2c94eb567134b63187355967db080df2c9b7cb0a73d54daf34c45b4fa17f",
+      "accuracy": 0.523,
+      "elapsed_s": 186.35
+    },
+    {
+      "round": 14,
+      "state_hash": "a00fe267acd361fcf77b961b3567f96e7c3979a2ee9cd61616e1ca555b61470a",
+      "logits_hash": "68b2ebeaabce299fb3f9b4c5682f182df7ce179da908457e3f45c2242692ed6a",
+      "accuracy": 0.5045,
+      "elapsed_s": 200.29
+    },
+    {
+      "round": 15,
+      "state_hash": "a5ad73e8d5c5ca7efa1e60f6a44a838d3db8556e9ba61646e71a260c30b21530",
+      "logits_hash": "8ac0bb35c251efb0f53aff7bec69921e7b4a1c4a7da3f7c76f25f5f0ed2973ed",
+      "accuracy": 0.5225,
+      "elapsed_s": 214.25
+    },
+    {
+      "round": 16,
+      "state_hash": "84a3f71a0f82b948033a4efddd1957c9dcec3763aa81976f4507f70ffbdb6113",
+      "logits_hash": "14851ea240653b49b106bbad29ebb545455824db8da3b69f41ca7926bf252230",
+      "accuracy": 0.5245,
+      "elapsed_s": 228.2
+    },
+    {
+      "round": 17,
+      "state_hash": "737699c298f4fdb0e37b82228b4355f2ba1a36bafeb42fbe0075e83a0024adb0",
+      "logits_hash": "8db8f7363b88f9f49f73fa6e0e7915970cc3de1d4e377fde4359c50179048255",
+      "accuracy": 0.5535,
+      "elapsed_s": 242.85
+    },
+    {
+      "round": 18,
+      "state_hash": "1f13e8aaac63fed9b42d5ad332c369327b8bf1fa9819a4d571526cea38347a11",
+      "logits_hash": "231f256675aa702bd68751fde7dcb9a1092ec3f619e8d797d5384132f15138ae",
+      "accuracy": 0.562,
+      "elapsed_s": 257.78
+    },
+    {
+      "round": 19,
+      "state_hash": "47c2edfc31e040764b81ecd112c6f977b23514fa88dae962d02d8bc7c4d1f1d9",
+      "logits_hash": "7ba36da16c5f37c71a18f3e48e04ab8e700b22762b2d8e12386dd4229e0c58ae",
+      "accuracy": 0.549,
+      "elapsed_s": 271.87
+    },
+    {
+      "round": 20,
+      "state_hash": "7ae0aa4f7437f34df141627dca9d2e14b3de98586e59f31d052599d9ee0ce8b5",
+      "logits_hash": "898933f45f3ba2aa9c7cb3f9ea7b2104fe9a9585bc33c438102cb7c4659392f3",
+      "accuracy": 0.5735,
+      "elapsed_s": 285.91
+    }
+  ]
+}
