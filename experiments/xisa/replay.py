@@ -78,7 +78,7 @@ def main() -> None:
         "verifier_env": env_info(),
         "verifier_platform": args.tag or platform_tag(),
         "source_env": src["env"],
-        "source_run": str(args.source),
+        "source_run": f"{args.source.parent.name}/{args.source.name}",
         "results": results,
     })
     print(f"report: {out_dir / name}")

@@ -147,6 +147,19 @@ def state_hash(state: dict) -> str:
     return sha256_bytes(*(state[k] for k in sorted(state)))
 
 
+def portable_args(args: dict) -> dict:
+    """Arguments with repository paths made relative, so reports carry no host paths."""
+    out = {}
+    for k, v in args.items():
+        if isinstance(v, (str, Path)) and Path(v).is_absolute():
+            try:
+                v = str(Path(v).resolve().relative_to(REPO_ROOT))
+            except ValueError:
+                v = Path(v).name
+        out[k] = str(v) if isinstance(v, Path) else v
+    return out
+
+
 def write_json(path: Path, obj) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(obj, indent=2) + "\n")

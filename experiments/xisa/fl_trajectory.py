@@ -17,7 +17,7 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
-from common import (env_info, exact_init, load_cifar, make_model, REPO_ROOT,
+from common import (env_info, exact_init, load_cifar, make_model, portable_args, REPO_ROOT,
                     results_dir, setup_torch, sha256_bytes, state_hash,
                     state_to_numpy, write_json)
 
@@ -142,7 +142,7 @@ def main() -> None:
     np.savez(run_dir / "preds.npz", **preds)
     write_json(run_dir / "summary.json", {
         "env": env_info(),
-        "args": vars(args),
+        "args": portable_args(vars(args)),
         "input_hash": data["input_hash"],
         "split_seed": SPLIT_SEED,
         "history": history,
