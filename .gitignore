@@ -50,3 +50,7 @@ htmlcov/
 
 # Internal notes
 .git-identity-reminder
+
+# Cross-ISA pilot: local venv and large raw outputs (summaries are committed)
+.venv-xisa/
+experiments/results/xisa/**/*.npz
