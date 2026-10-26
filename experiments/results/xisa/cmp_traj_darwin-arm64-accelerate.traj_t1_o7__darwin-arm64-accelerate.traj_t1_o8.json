@@ -1,0 +1,213 @@
+{
+  "a": {
+    "machine": "arm64",
+    "system": "Darwin",
+    "cpu": "Apple M2 Pro",
+    "python": "3.12.13",
+    "torch": "2.9.1",
+    "numpy": "2.3.5",
+    "blas": "accelerate",
+    "cpu_capability": "DEFAULT",
+    "mkldnn": false,
+    "threads": 1,
+    "in_container": false
+  },
+  "b": {
+    "machine": "arm64",
+    "system": "Darwin",
+    "cpu": "Apple M2 Pro",
+    "python": "3.12.13",
+    "torch": "2.9.1",
+    "numpy": "2.3.5",
+    "blas": "accelerate",
+    "cpu_capability": "DEFAULT",
+    "mkldnn": false,
+    "threads": 1,
+    "in_container": false
+  },
+  "args_a": {
+    "threads": 1,
+    "rounds": 20,
+    "clients": 10,
+    "epochs": 1,
+    "batch": 32,
+    "lr": 0.01,
+    "order_seed": 7,
+    "save_rounds": "0,1,2,5,10,20",
+    "replay_clients": "0,1",
+    "label": "",
+    "data": "data/xisa_cifar10.npz",
+    "out": "experiments/results/xisa",
+    "tag": null
+  },
+  "args_b": {
+    "threads": 1,
+    "rounds": 20,
+    "clients": 10,
+    "epochs": 1,
+    "batch": 32,
+    "lr": 0.01,
+    "order_seed": 8,
+    "save_rounds": "0,1,2,5,10,20",
+    "replay_clients": "0,1",
+    "label": "",
+    "data": "data/xisa_cifar10.npz",
+    "out": "experiments/results/xisa",
+    "tag": null
+  },
+  "rounds": [
+    {
+      "round": 0,
+      "same_state": true,
+      "pred_disagreement": 0.0,
+      "acc_a": 0.0925,
+      "acc_b": 0.0925,
+      "param_rel_l2": 0.0
+    },
+    {
+      "round": 1,
+      "same_state": false,
+      "pred_disagreement": 0.1325,
+      "acc_a": 0.2815,
+      "acc_b": 0.285,
+      "param_rel_l2": 0.004005213939104275
+    },
+    {
+      "round": 2,
+      "same_state": false,
+      "pred_disagreement": 0.128,
+      "acc_a": 0.333,
+      "acc_b": 0.3295,
+      "param_rel_l2": 0.00722753030052623
+    },
+    {
+      "round": 3,
+      "same_state": false,
+      "pred_disagreement": 0.202,
+      "acc_a": 0.351,
+      "acc_b": 0.369
+    },
+    {
+      "round": 4,
+      "same_state": false,
+      "pred_disagreement": 0.255,
+      "acc_a": 0.3635,
+      "acc_b": 0.387
+    },
+    {
+      "round": 5,
+      "same_state": false,
+      "pred_disagreement": 0.182,
+      "acc_a": 0.4065,
+      "acc_b": 0.413,
+      "param_rel_l2": 0.015981550944152243
+    },
+    {
+      "round": 6,
+      "same_state": false,
+      "pred_disagreement": 0.2655,
+      "acc_a": 0.4295,
+      "acc_b": 0.4285
+    },
+    {
+      "round": 7,
+      "same_state": false,
+      "pred_disagreement": 0.28,
+      "acc_a": 0.4605,
+      "acc_b": 0.447
+    },
+    {
+      "round": 8,
+      "same_state": false,
+      "pred_disagreement": 0.3115,
+      "acc_a": 0.433,
+      "acc_b": 0.454
+    },
+    {
+      "round": 9,
+      "same_state": false,
+      "pred_disagreement": 0.235,
+      "acc_a": 0.474,
+      "acc_b": 0.48
+    },
+    {
+      "round": 10,
+      "same_state": false,
+      "pred_disagreement": 0.27,
+      "acc_a": 0.4815,
+      "acc_b": 0.476,
+      "param_rel_l2": 0.025732701384631122
+    },
+    {
+      "round": 11,
+      "same_state": false,
+      "pred_disagreement": 0.2435,
+      "acc_a": 0.5025,
+      "acc_b": 0.4915
+    },
+    {
+      "round": 12,
+      "same_state": false,
+      "pred_disagreement": 0.2735,
+      "acc_a": 0.4925,
+      "acc_b": 0.5005
+    },
+    {
+      "round": 13,
+      "same_state": false,
+      "pred_disagreement": 0.15,
+      "acc_a": 0.521,
+      "acc_b": 0.523
+    },
+    {
+      "round": 14,
+      "same_state": false,
+      "pred_disagreement": 0.3215,
+      "acc_a": 0.519,
+      "acc_b": 0.5055
+    },
+    {
+      "round": 15,
+      "same_state": false,
+      "pred_disagreement": 0.222,
+      "acc_a": 0.5245,
+      "acc_b": 0.522
+    },
+    {
+      "round": 16,
+      "same_state": false,
+      "pred_disagreement": 0.2745,
+      "acc_a": 0.537,
+      "acc_b": 0.5245
+    },
+    {
+      "round": 17,
+      "same_state": false,
+      "pred_disagreement": 0.1635,
+      "acc_a": 0.554,
+      "acc_b": 0.5515
+    },
+    {
+      "round": 18,
+      "same_state": false,
+      "pred_disagreement": 0.1505,
+      "acc_a": 0.5575,
+      "acc_b": 0.555
+    },
+    {
+      "round": 19,
+      "same_state": false,
+      "pred_disagreement": 0.2645,
+      "acc_a": 0.5585,
+      "acc_b": 0.544
+    },
+    {
+      "round": 20,
+      "same_state": false,
+      "pred_disagreement": 0.206,
+      "acc_a": 0.5575,
+      "acc_b": 0.5725,
+      "param_rel_l2": 0.040519644452684
+    }
+  ]
+}

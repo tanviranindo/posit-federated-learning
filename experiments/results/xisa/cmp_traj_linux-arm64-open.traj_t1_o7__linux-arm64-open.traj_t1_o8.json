@@ -1,0 +1,213 @@
+{
+  "a": {
+    "machine": "aarch64",
+    "system": "Linux",
+    "cpu": "0x000",
+    "python": "3.12.15",
+    "torch": "2.9.1+cpu",
+    "numpy": "2.3.5",
+    "blas": "open",
+    "cpu_capability": "DEFAULT",
+    "mkldnn": true,
+    "threads": 1,
+    "in_container": true
+  },
+  "b": {
+    "machine": "aarch64",
+    "system": "Linux",
+    "cpu": "0x000",
+    "python": "3.12.15",
+    "torch": "2.9.1+cpu",
+    "numpy": "2.3.5",
+    "blas": "open",
+    "cpu_capability": "DEFAULT",
+    "mkldnn": true,
+    "threads": 1,
+    "in_container": true
+  },
+  "args_a": {
+    "threads": 1,
+    "rounds": 20,
+    "clients": 10,
+    "epochs": 1,
+    "batch": 32,
+    "lr": 0.01,
+    "order_seed": 7,
+    "save_rounds": "0,1,2,5,10,20",
+    "replay_clients": "0,1",
+    "label": "",
+    "data": "data/xisa_cifar10.npz",
+    "out": "experiments/results/xisa",
+    "tag": null
+  },
+  "args_b": {
+    "threads": 1,
+    "rounds": 20,
+    "clients": 10,
+    "epochs": 1,
+    "batch": 32,
+    "lr": 0.01,
+    "order_seed": 8,
+    "save_rounds": "0,1,2,5,10,20",
+    "replay_clients": "0,1",
+    "label": "",
+    "data": "data/xisa_cifar10.npz",
+    "out": "experiments/results/xisa",
+    "tag": null
+  },
+  "rounds": [
+    {
+      "round": 0,
+      "same_state": true,
+      "pred_disagreement": 0.0,
+      "acc_a": 0.0925,
+      "acc_b": 0.0925,
+      "param_rel_l2": 0.0
+    },
+    {
+      "round": 1,
+      "same_state": false,
+      "pred_disagreement": 0.1365,
+      "acc_a": 0.2815,
+      "acc_b": 0.285,
+      "param_rel_l2": 0.004000745455361178
+    },
+    {
+      "round": 2,
+      "same_state": false,
+      "pred_disagreement": 0.1295,
+      "acc_a": 0.3355,
+      "acc_b": 0.3295,
+      "param_rel_l2": 0.007205014212988709
+    },
+    {
+      "round": 3,
+      "same_state": false,
+      "pred_disagreement": 0.2065,
+      "acc_a": 0.351,
+      "acc_b": 0.368
+    },
+    {
+      "round": 4,
+      "same_state": false,
+      "pred_disagreement": 0.256,
+      "acc_a": 0.3635,
+      "acc_b": 0.386
+    },
+    {
+      "round": 5,
+      "same_state": false,
+      "pred_disagreement": 0.178,
+      "acc_a": 0.407,
+      "acc_b": 0.4125,
+      "param_rel_l2": 0.01586277742842756
+    },
+    {
+      "round": 6,
+      "same_state": false,
+      "pred_disagreement": 0.2685,
+      "acc_a": 0.429,
+      "acc_b": 0.4265
+    },
+    {
+      "round": 7,
+      "same_state": false,
+      "pred_disagreement": 0.278,
+      "acc_a": 0.4615,
+      "acc_b": 0.448
+    },
+    {
+      "round": 8,
+      "same_state": false,
+      "pred_disagreement": 0.3035,
+      "acc_a": 0.433,
+      "acc_b": 0.4575
+    },
+    {
+      "round": 9,
+      "same_state": false,
+      "pred_disagreement": 0.235,
+      "acc_a": 0.473,
+      "acc_b": 0.4775
+    },
+    {
+      "round": 10,
+      "same_state": false,
+      "pred_disagreement": 0.263,
+      "acc_a": 0.4835,
+      "acc_b": 0.476,
+      "param_rel_l2": 0.025288467914167632
+    },
+    {
+      "round": 11,
+      "same_state": false,
+      "pred_disagreement": 0.2455,
+      "acc_a": 0.5015,
+      "acc_b": 0.491
+    },
+    {
+      "round": 12,
+      "same_state": false,
+      "pred_disagreement": 0.276,
+      "acc_a": 0.4935,
+      "acc_b": 0.502
+    },
+    {
+      "round": 13,
+      "same_state": false,
+      "pred_disagreement": 0.153,
+      "acc_a": 0.5255,
+      "acc_b": 0.5205
+    },
+    {
+      "round": 14,
+      "same_state": false,
+      "pred_disagreement": 0.319,
+      "acc_a": 0.5195,
+      "acc_b": 0.5045
+    },
+    {
+      "round": 15,
+      "same_state": false,
+      "pred_disagreement": 0.2345,
+      "acc_a": 0.523,
+      "acc_b": 0.523
+    },
+    {
+      "round": 16,
+      "same_state": false,
+      "pred_disagreement": 0.2615,
+      "acc_a": 0.5405,
+      "acc_b": 0.525
+    },
+    {
+      "round": 17,
+      "same_state": false,
+      "pred_disagreement": 0.148,
+      "acc_a": 0.553,
+      "acc_b": 0.552
+    },
+    {
+      "round": 18,
+      "same_state": false,
+      "pred_disagreement": 0.1605,
+      "acc_a": 0.5545,
+      "acc_b": 0.5625
+    },
+    {
+      "round": 19,
+      "same_state": false,
+      "pred_disagreement": 0.2705,
+      "acc_a": 0.556,
+      "acc_b": 0.5475
+    },
+    {
+      "round": 20,
+      "same_state": false,
+      "pred_disagreement": 0.209,
+      "acc_a": 0.558,
+      "acc_b": 0.5755,
+      "param_rel_l2": 0.04118714659858656
+    }
+  ]
+}
