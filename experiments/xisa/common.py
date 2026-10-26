@@ -34,6 +34,18 @@ def sha256_bytes(*arrays) -> str:
     return h.hexdigest()
 
 
+# Arm "CPU part" codes from /proc/cpuinfo for cores likely to appear in runs.
+ARM_CPU_PARTS = {"0xd0c": "Neoverse-N1", "0xd40": "Neoverse-V1",
+                 "0xd49": "Neoverse-N2", "0xd4f": "Neoverse-V2"}
+
+
+def describe_cpu(cpu: str) -> str:
+    """Readable name for a raw Arm part code; other strings are returned unchanged."""
+    if cpu in ARM_CPU_PARTS:
+        return ARM_CPU_PARTS[cpu]
+    return f"Arm part {cpu}" if cpu.startswith("0x") else cpu
+
+
 def _cpu_model() -> str:
     system = platform.system()
     try:
@@ -45,7 +57,7 @@ def _cpu_model() -> str:
             for key in ("model name", "Model", "CPU part"):
                 m = re.search(rf"^{key}\s*:\s*(.+)$", text, re.MULTILINE)
                 if m:
-                    return m.group(1).strip()
+                    return describe_cpu(m.group(1).strip())
         if system == "Windows":
             return platform.processor()
     except (OSError, subprocess.SubprocessError):
