@@ -25,6 +25,8 @@ def bet_name(a: dict) -> str:
         parts.append(f"C{a['malicious']}")
     if a["attack_rounds"] != "all":
         parts.append(f"W{a['attack_rounds']}")
+    if a.get("tau_schedule"):
+        parts.append("sched")
     if a["split"] != "iid":
         parts.append(f"N{a['alpha']:g}")
     return "+".join(parts) or "baseline"
@@ -48,7 +50,7 @@ def main() -> None:
     runs = defaultdict(list)
     for p in sorted(args.results.glob("attack_*.json")):
         d = json.loads(p.read_text())
-        runs[(bet_name(d["args"]), d["args"]["tau"])].append(d)
+        runs[(bet_name(d["args"]), d["args"].get("tau_schedule") or d["args"]["tau"])].append(d)
 
     lines = ["# Harm bets", "",
              "Targeted attack vs random control of the same size (rule: gap >= 1 pp in every seed).",
@@ -67,7 +69,7 @@ def main() -> None:
                                       "per_seed": js, "success": ok}
             mean = lambda k: sum(j[k] for j in js) / len(js)  # noqa: E731
             lines.append(
-                f"| {bet} | {tau:g} | {r} | {len(js)} | "
+                f"| {bet} | {tau if isinstance(tau, str) else format(tau, "g")} | {r} | {len(js)} | "
                 + ", ".join(f"{100 * j['acc_gap']:+.2f}" for j in js) + " | "
                 + ", ".join(f"{100 * j['flip_gap']:+.2f}" for j in js) + " | "
                 + f"{100 * mean('acc_vs_honest'):+.2f} / {100 * mean('flip_vs_honest'):+.2f} | "

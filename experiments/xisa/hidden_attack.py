@@ -64,6 +64,15 @@ def parse_rounds(spec: str, rounds: int) -> set[int]:
     return set(range(int(lo), int(hi or lo) + 1))
 
 
+def tau_for_round(args, r: int) -> float:
+    """--tau, or the last --tau-schedule entry whose start round is <= r."""
+    if not args.tau_schedule:
+        return args.tau
+    steps = sorted((int(a), float(b)) for a, b in
+                   (item.split(":") for item in args.tau_schedule.split(",")))
+    return [t for start, t in steps if start <= r][-1]
+
+
 def run(args, data, parts, mode: str | None) -> list[dict]:
     """One FedAvg run; mode None is the honest baseline."""
     weights = [len(p) / sum(len(q) for q in parts) for p in parts]
@@ -90,7 +99,7 @@ def run(args, data, parts, mode: str | None) -> list[dict]:
                         d = -u
                     else:
                         d = np.random.Generator(np.random.PCG64([4242, r, k])).standard_normal(u.size)
-                    d *= args.tau * np.linalg.norm(u) / max(np.linalg.norm(d), 1e-30)
+                    d *= tau_for_round(args, r) * np.linalg.norm(u) / max(np.linalg.norm(d), 1e-30)
                     states[k] = unflat(g + u + d, states[k], keys)
             glob = fedavg(states, weights)
         _, pred = evaluate(glob, data)
@@ -107,6 +116,8 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--tau", type=float, required=True,
                     help="relative tolerance from replay.py (mismatch_rel_to_update)")
+    ap.add_argument("--tau-schedule", default="",
+                    help='round-dependent tau, e.g. "1:0.03,2:0.10,3:0.15" (overrides --tau)')
     ap.add_argument("--modes", default="targeted,random")
     ap.add_argument("--malicious", type=int, default=1, help="clients 0..m-1 attack")
     ap.add_argument("--attack-rounds", default="all", help='"all" or a range such as 1-3')
@@ -148,7 +159,8 @@ def main() -> None:
             + f"  (honest src->tgt {h['source_to_target']:.3f})", flush=True)
 
     name = args.name or (f"attack_{args.split}_e{args.epochs}_m{args.malicious}_"
-                         f"r{args.attack_rounds}_tau{args.tau:g}_o{args.order_seed}")
+                         f"r{args.attack_rounds}_tau{args.tau_schedule.replace(':', '-').replace(',', '_') or format(args.tau, 'g')}"
+                         f"_o{args.order_seed}")
     out = results_dir(args.out, args.tag) / f"{name}.json"
     write_json(out, {"env": env_info(), "args": portable_args(vars(args)),
                      "input_hash": data["input_hash"], "split_hash": split_hash(parts),
