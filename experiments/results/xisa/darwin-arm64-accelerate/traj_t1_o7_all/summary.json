@@ -1,0 +1,126 @@
+{
+  "env": {
+    "machine": "arm64",
+    "system": "Darwin",
+    "cpu": "Apple M2 Pro",
+    "python": "3.12.13",
+    "torch": "2.9.1",
+    "numpy": "2.3.5",
+    "blas": "accelerate",
+    "cpu_capability": "DEFAULT",
+    "mkldnn": false,
+    "threads": 1,
+    "in_container": false
+  },
+  "args": {
+    "threads": 1,
+    "rounds": 10,
+    "clients": 10,
+    "epochs": 5,
+    "split": "dirichlet",
+    "alpha": 0.3,
+    "batch": 32,
+    "lr": 0.01,
+    "order_seed": 7,
+    "save_rounds": "0,1,2,5,10",
+    "replay_clients": "0,1,2",
+    "label": "_all",
+    "data": "data/xisa_cifar10.npz",
+    "out": "experiments/results/xisa",
+    "tag": null
+  },
+  "input_hash": "a9f1a6c273997b682b3c0123cfb58aba0cc57cc10f701a84fc3bc3fd3360a57f",
+  "split_seed": 99,
+  "split_hash": "9af96e5c51611bae1fc46512c27a8ebba3231421d092e7d1f3b8ccfcee1751ad",
+  "client_sizes": [
+    707,
+    325,
+    96,
+    389,
+    587,
+    103,
+    773,
+    639,
+    387,
+    994
+  ],
+  "history": [
+    {
+      "round": 0,
+      "state_hash": "0f6db7d31f8e0d64b7eb42930906dfc6c6abc757f892c5fad6ddacea43d42db7",
+      "logits_hash": "56b12f3391ea6340efda44b739390e08831cb9d8d4f19475da9444bc644209a8",
+      "accuracy": 0.0925,
+      "elapsed_s": 1.64
+    },
+    {
+      "round": 1,
+      "state_hash": "598f02f76f3b0644de8ed821bede57657ad5cb0e1391a85a76767e5088e7887b",
+      "logits_hash": "af26a643ac71897ae1a0633021d0a94c9b0310b1a06bbffaf75dd48fb5767e61",
+      "accuracy": 0.316,
+      "elapsed_s": 45.7
+    },
+    {
+      "round": 2,
+      "state_hash": "eb0f9dcd3ce2f31aed2028ea262fc673d9315ba6d212e17b9c855d6bbd1e4934",
+      "logits_hash": "6c8c8bd14e681652b5dbf059f4b9310cecdf5558cfd16d0e47658b55c54d016c",
+      "accuracy": 0.386,
+      "elapsed_s": 91.34
+    },
+    {
+      "round": 3,
+      "state_hash": "4e32a911e9954a8590f4980564f4b78a8d60a6f43d5693d1baa0c595444ecc40",
+      "logits_hash": "22c2a34e51033c95ca444b4512e3ded14a51f14cd7e2ddb4dad33928bbeefd2c",
+      "accuracy": 0.431,
+      "elapsed_s": 130.56
+    },
+    {
+      "round": 4,
+      "state_hash": "45bd034bb7c6d455ca620bede5e6d773b989bd37bdc9540a48e2c67538599d4d",
+      "logits_hash": "8fe904228b26937dd76331e95ce2b9371a3379ac3d6e39af75d1e9b98c70d734",
+      "accuracy": 0.5035,
+      "elapsed_s": 166.53
+    },
+    {
+      "round": 5,
+      "state_hash": "3ae57b1627abe6a66128198be4218af56c4bc9160f267412400474f25d81aabc",
+      "logits_hash": "97b6bb0e25b586e39abc8a5fa66c9675dd4b40f77fc000d79711ab28f424e4e9",
+      "accuracy": 0.5035,
+      "elapsed_s": 205.22
+    },
+    {
+      "round": 6,
+      "state_hash": "4ab58ee0c0c36af4f7c19db70e838cf5ba657796f9e0696f453fa81a7bb5e395",
+      "logits_hash": "f0cf1e9fc66856bfbd3b6375d48bc71697194173638897de9b48b7a990ae6961",
+      "accuracy": 0.539,
+      "elapsed_s": 239.37
+    },
+    {
+      "round": 7,
+      "state_hash": "2f46c3ea555463a1bb1428c70e903f509c4394151ab50b85281aac554863b178",
+      "logits_hash": "194e2821c7aefc759f4abbc9f0ba9728d94c4546ac4d604b768ca8c988cbaec9",
+      "accuracy": 0.549,
+      "elapsed_s": 270.95
+    },
+    {
+      "round": 8,
+      "state_hash": "2e0b28e6d224d8225fc546dc538d4075ef1158f3983398db7536c9c1a5147880",
+      "logits_hash": "5030b0d3a9c2ff805d8ec646d7dfc859530b091c1c5ba19ee6c42953e0e206d3",
+      "accuracy": 0.563,
+      "elapsed_s": 304.4
+    },
+    {
+      "round": 9,
+      "state_hash": "c81b44f0fe02158127a201d34bcc8c662e124fc9f580aa79086f87f67b4641dd",
+      "logits_hash": "fc91598a122b9f9109b9bf9f230247756c3991a588857dfb4b52023625673a90",
+      "accuracy": 0.561,
+      "elapsed_s": 336.77
+    },
+    {
+      "round": 10,
+      "state_hash": "61ccd709dd68343683afda782cc4236ba60b8fefaf5c7377bc75dc2c60f3e33c",
+      "logits_hash": "818de287a40016024e61a3977403ae65b01de881cffc8ccc2f38bd33e1b8a722",
+      "accuracy": 0.5855,
+      "elapsed_s": 372.23
+    }
+  ]
+}

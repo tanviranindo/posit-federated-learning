@@ -1,0 +1,126 @@
+{
+  "env": {
+    "machine": "arm64",
+    "system": "Darwin",
+    "cpu": "Apple M2 Pro",
+    "python": "3.12.13",
+    "torch": "2.9.1",
+    "numpy": "2.3.5",
+    "blas": "accelerate",
+    "cpu_capability": "DEFAULT",
+    "mkldnn": false,
+    "threads": 1,
+    "in_container": false
+  },
+  "args": {
+    "threads": 1,
+    "rounds": 10,
+    "clients": 10,
+    "epochs": 1,
+    "split": "dirichlet",
+    "alpha": 0.3,
+    "batch": 32,
+    "lr": 0.01,
+    "order_seed": 7,
+    "save_rounds": "0,1,2,5,10",
+    "replay_clients": "0,1,2",
+    "label": "_n03",
+    "data": "data/xisa_cifar10.npz",
+    "out": "experiments/results/xisa",
+    "tag": null
+  },
+  "input_hash": "a9f1a6c273997b682b3c0123cfb58aba0cc57cc10f701a84fc3bc3fd3360a57f",
+  "split_seed": 99,
+  "split_hash": "9af96e5c51611bae1fc46512c27a8ebba3231421d092e7d1f3b8ccfcee1751ad",
+  "client_sizes": [
+    707,
+    325,
+    96,
+    389,
+    587,
+    103,
+    773,
+    639,
+    387,
+    994
+  ],
+  "history": [
+    {
+      "round": 0,
+      "state_hash": "0f6db7d31f8e0d64b7eb42930906dfc6c6abc757f892c5fad6ddacea43d42db7",
+      "logits_hash": "56b12f3391ea6340efda44b739390e08831cb9d8d4f19475da9444bc644209a8",
+      "accuracy": 0.0925,
+      "elapsed_s": 1.88
+    },
+    {
+      "round": 1,
+      "state_hash": "3ed041651c236cbbb8161d5adc773eb8933a4cbc1e2f09125570cc7fa25101f5",
+      "logits_hash": "58192b1a3a8480404f3e8205e74c4ed92595095522591ceec36731f3e75bbff7",
+      "accuracy": 0.219,
+      "elapsed_s": 14.59
+    },
+    {
+      "round": 2,
+      "state_hash": "e77049b0c0febc7d826947e9e4b14211777b2170993d4741c90f39d8bae2318f",
+      "logits_hash": "1dc09b06ede00b9eddc44369ce2af1ab986abe801958ac35fba5eb9cefd965b6",
+      "accuracy": 0.267,
+      "elapsed_s": 24.11
+    },
+    {
+      "round": 3,
+      "state_hash": "4c38523632d44684cccdbaf467e21c727f1b0cd0d750f09fc6aec6171b29cf05",
+      "logits_hash": "b06fb162e46073c179f3c1a4fd3771c59f9bbbf8351884e75233a98f83f3c339",
+      "accuracy": 0.3045,
+      "elapsed_s": 33.1
+    },
+    {
+      "round": 4,
+      "state_hash": "a2b505a2f6bc7bac69ed754a0b5dcb5d1848fa7b2b9a3e19ce43424477d5e8b9",
+      "logits_hash": "9d8524ab42ade5de9cc11bd183112db6a53273f249793c696afd614a4e18eeff",
+      "accuracy": 0.306,
+      "elapsed_s": 42.57
+    },
+    {
+      "round": 5,
+      "state_hash": "572e94c6c51edffcce9a5b3800298ca95fda2fd7a64eb3a287a83c7c50835325",
+      "logits_hash": "5aef50ada040a4d84885dd7c472498aab5952126b46417f60b0bf5a2c9272a4d",
+      "accuracy": 0.336,
+      "elapsed_s": 52.21
+    },
+    {
+      "round": 6,
+      "state_hash": "7c23e737c02488b2e56d00da6497d8d446b200ff734d8348033805e61a48bc8c",
+      "logits_hash": "0b14f63556a5c15b8090809a7f32e980f42461d56669a55d4ab02280c5375482",
+      "accuracy": 0.3405,
+      "elapsed_s": 61.34
+    },
+    {
+      "round": 7,
+      "state_hash": "c369391cade6f479fad23934fa8b39548db526cd340aad9cd0e286feb6749ee2",
+      "logits_hash": "64e32b5881a4f37d6b569fb653e2179f2f2c52b44fe98feffa3ffa299ddd63c3",
+      "accuracy": 0.3655,
+      "elapsed_s": 71.17
+    },
+    {
+      "round": 8,
+      "state_hash": "bf29fb047c3968ae950ee74154b32ea438acc08d44d151be87254951e5b84546",
+      "logits_hash": "2b4f684e5683a6cd4f26887e6529a6bdbbf1f90920cab5aeeed9f3bf8a250edb",
+      "accuracy": 0.362,
+      "elapsed_s": 83.66
+    },
+    {
+      "round": 9,
+      "state_hash": "6b4ba78ce688f6ea92bd848b8fd2de9613b63a75b0cafcc63b2e362f4bf9b615",
+      "logits_hash": "52c577cb3f41fbb3ed9b69f18ccd601f2ed93d7b1e480ee1b5ba001baae74a76",
+      "accuracy": 0.3865,
+      "elapsed_s": 95.39
+    },
+    {
+      "round": 10,
+      "state_hash": "3a7be343df7c9d384673feb00be639a60dc3f04b7f088bf14f18b252b0da7382",
+      "logits_hash": "53341de3c7e6459f31935cdf675b599be539aaa9ad7b288ff90d7633575d3d1f",
+      "accuracy": 0.394,
+      "elapsed_s": 106.88
+    }
+  ]
+}
