@@ -20,7 +20,7 @@ import numpy as np
 from common import (env_info, load_cifar, platform_tag, REPO_ROOT, results_dir,
                     setup_torch, write_json)
 from compare import diff_stats
-from fl_trajectory import client_indices, local_train
+from fl_trajectory import client_indices, local_train, split_hash
 
 
 def main() -> None:
@@ -38,7 +38,10 @@ def main() -> None:
     if src["input_hash"] != data["input_hash"]:
         raise SystemExit("input hash differs from the source run")
     sargs = src["args"]
-    parts = client_indices(len(data["y_train"]), sargs["clients"])
+    parts = client_indices(data["y_train"], sargs["clients"], sargs.get("split", "iid"),
+                           sargs.get("alpha", 0.3))
+    if "split_hash" in src and src["split_hash"] != split_hash(parts):
+        raise SystemExit("client split differs from the source run")
 
     with np.load(args.source / "states.npz") as z:
         files = z.files

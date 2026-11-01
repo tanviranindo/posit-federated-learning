@@ -24,11 +24,36 @@ from common import (env_info, exact_init, load_cifar, make_model, portable_args,
 SPLIT_SEED = 99
 
 
-def client_indices(n_train: int, clients: int) -> list[np.ndarray]:
-    """IID split with equal shares, fixed independently of the order seed."""
-    perm = np.random.Generator(np.random.PCG64(SPLIT_SEED)).permutation(n_train)
-    size = n_train // clients
-    return [np.sort(perm[k * size:(k + 1) * size]) for k in range(clients)]
+def client_indices(labels: np.ndarray, clients: int, split: str = "iid",
+                   alpha: float = 0.3, min_size: int = 32) -> list[np.ndarray]:
+    """Client partition, fixed independently of the order seed.
+
+    iid: equal random shares. dirichlet: per-class shares drawn from
+    Dirichlet(alpha), redrawn until every client has at least min_size
+    samples. Dirichlet sampling goes through libm, so callers record
+    split_hash() and check it across platforms.
+    """
+    rng = np.random.Generator(np.random.PCG64(SPLIT_SEED))
+    n_train = len(labels)
+    if split == "iid":
+        perm = rng.permutation(n_train)
+        size = n_train // clients
+        return [np.sort(perm[k * size:(k + 1) * size]) for k in range(clients)]
+    if split != "dirichlet":
+        raise ValueError(split)
+    while True:
+        parts = [[] for _ in range(clients)]
+        for c in np.unique(labels):
+            idx = rng.permutation(np.flatnonzero(labels == c))
+            cuts = (np.cumsum(rng.dirichlet(np.full(clients, alpha))) * len(idx)).astype(np.int64)
+            for k, chunk in enumerate(np.split(idx, cuts[:-1])):
+                parts[k].extend(chunk.tolist())
+        if min(len(p) for p in parts) >= min_size:
+            return [np.sort(np.array(p, dtype=np.int64)) for p in parts]
+
+
+def split_hash(parts: list[np.ndarray]) -> str:
+    return sha256_bytes(*parts)
 
 
 def local_train(global_state: dict, data: dict, idx: np.ndarray, *, order_seed: int,
@@ -82,6 +107,8 @@ def main() -> None:
     ap.add_argument("--rounds", type=int, default=20)
     ap.add_argument("--clients", type=int, default=10)
     ap.add_argument("--epochs", type=int, default=1)
+    ap.add_argument("--split", choices=["iid", "dirichlet"], default="iid")
+    ap.add_argument("--alpha", type=float, default=0.3, help="Dirichlet concentration")
     ap.add_argument("--batch", type=int, default=32)
     ap.add_argument("--lr", type=float, default=0.01)
     ap.add_argument("--order-seed", type=int, default=7)
@@ -101,7 +128,7 @@ def main() -> None:
         f"traj_t{args.threads}_o{args.order_seed}{args.label}")
     run_dir.mkdir(parents=True, exist_ok=True)
 
-    parts = client_indices(len(data["y_train"]), args.clients)
+    parts = client_indices(data["y_train"], args.clients, args.split, args.alpha)
     weights = [len(p) / sum(len(q) for q in parts) for p in parts]
     train_kw = dict(order_seed=args.order_seed, epochs=args.epochs,
                     batch=args.batch, lr=args.lr)
@@ -145,6 +172,8 @@ def main() -> None:
         "args": portable_args(vars(args)),
         "input_hash": data["input_hash"],
         "split_seed": SPLIT_SEED,
+        "split_hash": split_hash(parts),
+        "client_sizes": [len(p) for p in parts],
         "history": history,
     })
 
