@@ -1,0 +1,109 @@
+{
+  "env": {
+    "machine": "arm64",
+    "system": "Darwin",
+    "cpu": "Apple M1 (Virtual)",
+    "python": "3.12.10",
+    "torch": "2.9.1",
+    "numpy": "2.3.5",
+    "blas": "accelerate",
+    "cpu_capability": "DEFAULT",
+    "mkldnn": false,
+    "threads": 1,
+    "in_container": false
+  },
+  "args": {
+    "threads": 1,
+    "rounds": 3,
+    "clients": 10,
+    "epochs": 5,
+    "split": "iid",
+    "alpha": 0.3,
+    "batch": 32,
+    "lr": 0.01,
+    "order_seed": 7,
+    "bench": true,
+    "label": "",
+    "data": "data/xisa_cifar10.npz",
+    "out": "experiments/results/xisa",
+    "tag": "gha-macos-latest-a"
+  },
+  "input_hash": "a9f1a6c273997b682b3c0123cfb58aba0cc57cc10f701a84fc3bc3fd3360a57f",
+  "split_hash": "d4c3fa9d3431da72a4b9e0c8c6ac9d073a1758ccbca087b9464259af58344b69",
+  "bench": {
+    "standard": 0.6585060840000097,
+    "deterministic": 9.185354624999945,
+    "ratio": 13.948777161183845
+  },
+  "history": [
+    {
+      "round": 0,
+      "state_hash": "0f6db7d31f8e0d64b7eb42930906dfc6c6abc757f892c5fad6ddacea43d42db7",
+      "client_hashes": [],
+      "logits_hash": "32b8364d5c9f47dfd419ce7aaee12490f595aa7b88becde709ed58ea0154ad82",
+      "accuracy": 0.0925,
+      "s_per_local_epoch": null,
+      "elapsed_s": 14.41
+    },
+    {
+      "round": 1,
+      "state_hash": "7ba5628019817e4f474b45fe5ce5724b68e9a266689be5c9cf636f04c349f6c3",
+      "client_hashes": [
+        "f985e75edff4c6c8af728958aaa55a2e549bb91e74e0a16aaa6dcbe358ebd326",
+        "be8416d2f9f834bc3e45cf52ef8c1d37496c1f31f7c0500da5afe87db73f359d",
+        "aeead26b213b158e8d93a7699cbb3f482f38ac0bfe415bb6000842a691c81053",
+        "2ae70a07f0aa8061456a353aa0373d747b27aca5afab51eec547470d70d342e7",
+        "3730537b77b521ac8578fe30bf5ab61084e1fb00657debcfa0ae67ef0f4c8bbe",
+        "1a3143aa9ccc5c63ee8203b8ab2877c52ddee3a65a1c992687d4a0b2ae616998",
+        "4117e92e52a2f9d3216b8ff408e42a38f485d391dfb82480a6250e1edea25d33",
+        "811687576e62b567916ebd7c468d4bcb6f9ed49ca415aef703ea3a47e088f78f",
+        "d8c8ff1ee522c298f07f823a8c8c76d95ecae1d5d2eca4876f0235bdea93d179",
+        "3e4742587695e9d048b91606fb74c88cdc97cf7a2b11fae9c7ab8b69364c975b"
+      ],
+      "logits_hash": "ba101e05928be4bd2d13d59103c061f0a3f2c310f4aea4fb094f2ee1e3441e75",
+      "accuracy": 0.42,
+      "s_per_local_epoch": 7.605,
+      "elapsed_s": 406.08
+    },
+    {
+      "round": 2,
+      "state_hash": "4ca6d0d5b2de5e373957ce3987670602c1ae4e327b9ad96040359aee99b665ca",
+      "client_hashes": [
+        "f42ce3ef13dab108db1832d99a9ca597d1b50f1f666243b4185038ed29cb5f40",
+        "c8df142b0d3f14be8ddde0e80b95909f0307efa24c581c73d0c79e4a4edf9211",
+        "3b94d28a7e248b1cee1e4fe08c82e8a52825dc052c8893a57649aa11d3360e87",
+        "5ede2ddf7d02c0edde9ea264c0800b3965423afb1a6489617eb8a692af359ad0",
+        "8b4b0b7f1d900dd4d3de2ec607c239e5fdac61c483c2e6f0a1e5c71dc01e0a68",
+        "8deba35f12724428c2bb2bf45adcbb4719f8949a517cd79ad0aab5e5cbe5000b",
+        "c98b00b6da88ffb9b8b03752db76743672e70230c1c588194fcf042908fb8105",
+        "1e49315d7a88b51a8e9c597982bd2f35e5520bb74cdee2152a59128f1261e8b7",
+        "fc4db05cb2e07562ff2ead37cd83c4acd8fb71ae3feaaf9088fbea8ccc4639fa",
+        "d4d02d61a6a792317ca19dfe92fab420f1257e5635fb10ffb62b549d913fba70"
+      ],
+      "logits_hash": "6d560c32ec4521e373c2b065b4569dd9143160bd2498a53862edd48e1f9665c0",
+      "accuracy": 0.5085,
+      "s_per_local_epoch": 6.937,
+      "elapsed_s": 763.76
+    },
+    {
+      "round": 3,
+      "state_hash": "75ab0f0fdbdf82f29994e545fcc577af6757efb36f9f59187e92f6f05e571b51",
+      "client_hashes": [
+        "bd309c9f319872fd497fc869b991c335942fd5e21bc0892174e6613ae7d92e86",
+        "21523139cfd9e8df90fe6241fa0ee227d7b9b2024756ebf43238ac0bf322f731",
+        "abb163a7e3a377476c787258bc53e10658dc999bbad612f7132839cc56449718",
+        "4c130aa2c45b63fea3f5dc0c9b4e06e1eb2ba44bb0dbc8abc8af87ad8d6230c6",
+        "4400c754a907e1a13e865d655a145cd1061d6576e42e85853ae32d6ce0769f61",
+        "fd6a7e82a08983807e4f99ff8437c5bfbb4c4c73eaddd4fd37198e454e499a41",
+        "a490a408495646939a1014b6b6e2212accd7397926652c48708371950d9c39db",
+        "9d02e28c95eea21995ba459bb51865267e42e595510e7225d49c6794d163f96c",
+        "461d5e2a9af5e8211103cec1e4387482e39a538143ab35dc3ae42d3b261e1f66",
+        "b59b17b1e74e068d6db7040e861b4d38880ee3b14794f9579336606625bc2f8b"
+      ],
+      "logits_hash": "942cbb6219f15d2a5d3d2e77f682f65b899855b0f78d57eb31114ff2d7e8cfa7",
+      "accuracy": 0.549,
+      "s_per_local_epoch": 7.117,
+      "elapsed_s": 1130.66
+    }
+  ]
+}

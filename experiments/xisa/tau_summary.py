@@ -32,7 +32,7 @@ def isa(env: dict) -> str:
 def cpu(env: dict) -> str:
     """Short CPU label: GitHub runners of one image can land on different CPUs."""
     name = env["cpu"]
-    for key, short in (("EPYC", "AMD EPYC"), ("AMD64 Family 25", "AMD Zen3"), ("XEON", "Intel Xeon"),
+    for key, short in (("EPYC", "AMD EPYC"), ("AMD64 Family 25", "AMD Zen3"), ("AMD64 Family 26", "AMD Zen5"), ("XEON", "Intel Xeon"),
                        ("Intel64 Family 6", "Intel Xeon"), ("Neoverse", "Neoverse-N2"), ("Apple", "Apple"),
                        ("Arm part 0x000", "Apple (Linux VM)")):
         if key.lower() in name.lower():

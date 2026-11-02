@@ -1,0 +1,49 @@
+{
+  "env": {
+    "machine": "arm64",
+    "system": "Darwin",
+    "cpu": "Apple M2 Pro",
+    "python": "3.12.13",
+    "torch": "2.9.1",
+    "numpy": "2.3.5",
+    "blas": "accelerate",
+    "cpu_capability": "DEFAULT",
+    "mkldnn": false,
+    "threads": 1,
+    "in_container": false
+  },
+  "args": {
+    "threads": 1,
+    "rounds": 0,
+    "clients": 10,
+    "epochs": 5,
+    "split": "iid",
+    "alpha": 0.3,
+    "batch": 32,
+    "lr": 0.01,
+    "order_seed": 7,
+    "bench": true,
+    "label": "_bench",
+    "data": "data/xisa_cifar10.npz",
+    "out": "experiments/results/xisa",
+    "tag": null
+  },
+  "input_hash": "a9f1a6c273997b682b3c0123cfb58aba0cc57cc10f701a84fc3bc3fd3360a57f",
+  "split_hash": "d4c3fa9d3431da72a4b9e0c8c6ac9d073a1758ccbca087b9464259af58344b69",
+  "bench": {
+    "standard": 0.45387695799581707,
+    "deterministic": 2.466357875149697,
+    "ratio": 5.433979037050889
+  },
+  "history": [
+    {
+      "round": 0,
+      "state_hash": "0f6db7d31f8e0d64b7eb42930906dfc6c6abc757f892c5fad6ddacea43d42db7",
+      "client_hashes": [],
+      "logits_hash": "32b8364d5c9f47dfd419ce7aaee12490f595aa7b88becde709ed58ea0154ad82",
+      "accuracy": 0.0925,
+      "s_per_local_epoch": null,
+      "elapsed_s": 3.28
+    }
+  ]
+}
