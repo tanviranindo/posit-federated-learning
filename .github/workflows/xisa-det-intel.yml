@@ -1,0 +1,54 @@
+name: xisa-det-intel
+
+# Mitigation M1 on Intel x86: GitHub assigns Intel or AMD hosts at random, so
+# this starts many x86 jobs and runs the deterministic stack only on those
+# that landed on an Intel CPU; the others stop after the CPU check.
+on:
+  push:
+    branches: [revision/real-hardware-study]
+    paths: [.github/workflows/xisa-det-intel.yml]
+
+jobs:
+  det:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-24.04, ubuntu-22.04, windows-latest, windows-2022]
+        copy: [a, b, c]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 300
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Check CPU vendor
+        id: cpu
+        run: |
+          if [ "$RUNNER_OS" = Windows ]; then id="$PROCESSOR_IDENTIFIER"; else id="$(grep -m1 'vendor_id' /proc/cpuinfo)"; fi
+          echo "$id"
+          if echo "$id" | grep -qi GenuineIntel; then echo "intel=true" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/checkout@v4
+        if: steps.cpu.outputs.intel == 'true'
+      - uses: actions/setup-python@v5
+        if: steps.cpu.outputs.intel == 'true'
+        with:
+          python-version: "3.12"
+      - name: Install pinned stack
+        if: steps.cpu.outputs.intel == 'true'
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install numpy==2.3.5
+      - name: Self-checks and deterministic run
+        if: steps.cpu.outputs.intel == 'true'
+        run: |
+          python experiments/xisa/prepare_data.py
+          python experiments/xisa/detops_check.py
+          python experiments/xisa/det_trajectory.py --epochs 5 --rounds 3 --bench \
+            --tag gha-${{ matrix.runner }}-intel-${{ matrix.copy }}
+      - uses: actions/upload-artifact@v4
+        if: steps.cpu.outputs.intel == 'true'
+        with:
+          name: det-gha-${{ matrix.runner }}-intel-${{ matrix.copy }}
+          path: experiments/results/xisa/gha-${{ matrix.runner }}-intel-${{ matrix.copy }}/
+          retention-days: 90
