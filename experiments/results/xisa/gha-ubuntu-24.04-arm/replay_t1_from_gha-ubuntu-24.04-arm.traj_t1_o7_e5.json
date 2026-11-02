@@ -1,0 +1,4092 @@
+{
+  "verifier_env": {
+    "machine": "aarch64",
+    "system": "Linux",
+    "cpu": "Neoverse-N2",
+    "python": "3.12.15",
+    "torch": "2.9.1+cpu",
+    "numpy": "2.3.5",
+    "blas": "open",
+    "cpu_capability": "DEFAULT",
+    "mkldnn": true,
+    "threads": 1,
+    "in_container": false
+  },
+  "verifier_platform": "gha-ubuntu-24.04-arm",
+  "source_env": {
+    "machine": "aarch64",
+    "system": "Linux",
+    "cpu": "Neoverse-N2",
+    "python": "3.12.15",
+    "torch": "2.9.1+cpu",
+    "numpy": "2.3.5",
+    "blas": "open",
+    "cpu_capability": "DEFAULT",
+    "mkldnn": true,
+    "threads": 1,
+    "in_container": false
+  },
+  "source_run": "gha-ubuntu-24.04-arm/traj_t1_o7_e5",
+  "results": [
+    {
+      "client": 0,
+      "round": 1,
+      "identical": true,
+      "update_norm": 13.995008025820006,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 1,
+      "round": 1,
+      "identical": true,
+      "update_norm": 14.046252031714452,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 2,
+      "round": 1,
+      "identical": true,
+      "update_norm": 13.87336648720654,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 3,
+      "round": 1,
+      "identical": true,
+      "update_norm": 14.038587135675238,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 0,
+      "round": 2,
+      "identical": true,
+      "update_norm": 3.902938615396614,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 1,
+      "round": 2,
+      "identical": true,
+      "update_norm": 3.976028927602192,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 2,
+      "round": 2,
+      "identical": true,
+      "update_norm": 3.9851662995112087,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 3,
+      "round": 2,
+      "identical": true,
+      "update_norm": 4.1073896203953195,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 0,
+      "round": 3,
+      "identical": true,
+      "update_norm": 4.0460049942546386,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 1,
+      "round": 3,
+      "identical": true,
+      "update_norm": 3.780985318875261,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 2,
+      "round": 3,
+      "identical": true,
+      "update_norm": 3.736397917160889,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 3,
+      "round": 3,
+      "identical": true,
+      "update_norm": 3.870819228738287,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 0,
+      "round": 6,
+      "identical": true,
+      "update_norm": 4.12159873010809,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 1,
+      "round": 6,
+      "identical": true,
+      "update_norm": 4.31933353086915,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 2,
+      "round": 6,
+      "identical": true,
+      "update_norm": 4.229650723707462,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 3,
+      "round": 6,
+      "identical": true,
+      "update_norm": 4.09070573064049,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 0,
+      "round": 11,
+      "identical": true,
+      "update_norm": 4.475269141458176,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 1,
+      "round": 11,
+      "identical": true,
+      "update_norm": 4.205240186762234,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 2,
+      "round": 11,
+      "identical": true,
+      "update_norm": 4.989138699653637,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    },
+    {
+      "client": 3,
+      "round": 11,
+      "identical": true,
+      "update_norm": 4.508605383745758,
+      "mismatch_l2": 0.0,
+      "mismatch_rel_to_update": 0.0,
+      "mismatch_linf": 0.0,
+      "per_tensor": {
+        "conv1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "conv3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn1.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn2.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_mean": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "bn3.running_var": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc1.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc2.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.weight": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        },
+        "fc3.bias": {
+          "identical": true,
+          "frac_diff": 0.0,
+          "max_ulp": 0,
+          "median_ulp_of_diff": 0.0,
+          "rel_l2": 0.0,
+          "max_abs": 0.0
+        }
+      }
+    }
+  ]
+}

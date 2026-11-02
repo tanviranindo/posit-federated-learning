@@ -29,6 +29,19 @@ def isa(env: dict) -> str:
     return {"aarch64": "arm64", "AMD64": "x86_64"}.get(env["machine"], env["machine"])
 
 
+def cpu(env: dict) -> str:
+    """Short CPU label: GitHub runners of one image can land on different CPUs."""
+    name = env["cpu"]
+    for key, short in (("EPYC", "AMD EPYC"), ("AMD64 Family 25", "AMD Zen3"), ("XEON", "Intel Xeon"),
+                       ("Intel64 Family 6", "Intel Xeon"), ("Neoverse", "Neoverse-N2"), ("Apple", "Apple"),
+                       ("Arm part 0x000", "Apple (Linux VM)")):
+        if key.lower() in name.lower():
+            name = short
+            break
+    cap = env.get("cpu_capability", "")
+    return f"{name} {cap}" if cap and cap != "DEFAULT" else name
+
+
 def floor_01pp(x: float) -> float:
     return math.floor(x * 1000) / 1000
 
@@ -53,6 +66,7 @@ def main() -> None:
         pairs.append({
             "verifier": p.parent.name, "source": d["source_run"].split("/")[0],
             "isa": (isa(d["verifier_env"]), isa(d["source_env"])),
+            "cpu": (cpu(d["verifier_env"]), cpu(d["source_env"])),
             "identical": all(row["identical"] for row in d["results"]),
             "rounds": {r: [row["mismatch_rel_to_update"] for row in rs]
                        for r, rs in sorted(rows.items())},
@@ -60,7 +74,8 @@ def main() -> None:
     if not pairs:
         raise SystemExit(f"no replay reports for {args.run} under {args.results}")
 
-    self_pairs = [q for q in pairs if q["verifier"] == q["source"]]
+    self_pairs = [q for q in pairs if q["cpu"][0] == q["cpu"][1]
+                  and q["verifier"].split("-")[0] == q["source"].split("-")[0]]
     cross = [q for q in pairs if q["isa"][0] != q["isa"][1]]
     rounds = sorted({r for q in pairs for r in q["rounds"]})
 
@@ -78,16 +93,16 @@ def main() -> None:
     lines = [f"# Replay tolerance ({args.run})", "",
              "Honest mismatch ||replayed - reported|| / ||update|| per round, min-max over "
              "replayed clients (%).", "",
-             "| Verifier | Source | ISA | Identical | " + " | ".join(f"r{r}" for r in rounds) + " |",
+             "| Verifier | Source | CPU (verifier <- source) | Identical | " + " | ".join(f"r{r}" for r in rounds) + " |",
              "|---|---|---|---|" + "---|" * len(rounds)]
     for q in sorted(pairs, key=lambda q: (q["isa"][0] == q["isa"][1], q["verifier"], q["source"])):
         cells = [f"{100 * min(q['rounds'][r]):.1f}-{100 * max(q['rounds'][r]):.1f}"
                  if r in q["rounds"] else "" for r in rounds]
-        lines.append(f"| {q['verifier']} | {q['source']} | {q['isa'][0]} <- {q['isa'][1]} | "
+        lines.append(f"| {q['verifier']} | {q['source']} | {q['cpu'][0]} <- {q['cpu'][1]} | "
                      f"{'yes' if q['identical'] else 'no'} | " + " | ".join(cells) + " |")
     lines += ["",
-              f"Self-replays bitwise identical: {all(q['identical'] for q in self_pairs)} "
-              f"({len(self_pairs)} platforms).",
+              f"Replays on the same CPU and OS bitwise identical: "
+              f"{all(q['identical'] for q in self_pairs)} ({len(self_pairs)} pairs).",
               f"C1 (every cross-ISA mismatch >= {100 * PASS_MISMATCH:g}% at rounds >= "
               f"{PASS_FROM_ROUND}, {len(cross)} pairs): **{'pass' if c1_pass else 'fail'}**"
               + ("" if c1_pass else f" ({len(c1_fail)} values below)"), "",
