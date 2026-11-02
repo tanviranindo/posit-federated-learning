@@ -3,11 +3,10 @@ name: xisa-pilot
 # Runs the cross-ISA divergence pilot natively on GitHub-hosted runners
 # (x86_64 and arm64, Linux/Windows/macOS) and uploads the raw results.
 on:
-  # workflow_dispatch only works once this file is on the default branch, so
-  # pushes to the revision branch also start a run.
-  push:
-    branches: [revision/real-hardware-study]
-    paths: [experiments/xisa/**, .github/workflows/xisa-pilot.yml]
+  # workflow_dispatch only works once this file is on the default branch. The
+  # pilot finished (results committed), so the push trigger that ran it from
+  # the revision branch is off; restore it here to run the pilot again:
+  #   push: {branches: [revision/real-hardware-study], paths: [experiments/xisa/**]}
   workflow_dispatch:
     inputs:
       rounds:

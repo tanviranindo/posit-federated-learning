@@ -1,0 +1,101 @@
+name: xisa-tau
+
+# Confirmation C1: replay tolerance for 5 local epochs across ISAs.
+# Stage 1 records a 5-epoch trajectory on every runner; stage 2 replays every
+# runner's trajectory (its own included) on every runner.
+on:
+  push:
+    branches: [revision/real-hardware-study]
+    paths: [.github/workflows/xisa-tau.yml]
+
+env:
+  TRAJ: traj_t1_o7_e5
+
+jobs:
+  trajectory:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-24.04
+            torch_index: https://download.pytorch.org/whl/cpu
+          - runner: ubuntu-24.04-arm
+            torch_index: https://download.pytorch.org/whl/cpu
+          - runner: windows-latest
+            torch_index: https://download.pytorch.org/whl/cpu
+          - runner: macos-latest
+            torch_index: https://pypi.org/simple
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 300
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch==2.9.1 --index-url ${{ matrix.torch_index }}
+          python -m pip install numpy==2.3.5
+      - name: Record 5-epoch trajectory
+        run: |
+          python experiments/xisa/prepare_data.py
+          python experiments/xisa/fl_trajectory.py --threads 1 --epochs 5 --rounds 11 \
+            --save-rounds 0,1,2,5,10 --replay-clients 0,1,2,3 --label _e5 \
+            --tag gha-${{ matrix.runner }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tau-traj-gha-${{ matrix.runner }}
+          path: experiments/results/xisa/gha-${{ matrix.runner }}/${{ env.TRAJ }}/
+          retention-days: 90
+
+  replay:
+    needs: trajectory
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-24.04
+            torch_index: https://download.pytorch.org/whl/cpu
+          - runner: ubuntu-24.04-arm
+            torch_index: https://download.pytorch.org/whl/cpu
+          - runner: windows-latest
+            torch_index: https://download.pytorch.org/whl/cpu
+          - runner: macos-latest
+            torch_index: https://pypi.org/simple
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 300
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch==2.9.1 --index-url ${{ matrix.torch_index }}
+          python -m pip install numpy==2.3.5
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: tau-traj-*
+          path: sources
+      - name: Replay every trajectory
+        run: |
+          python experiments/xisa/prepare_data.py
+          for a in sources/tau-traj-*; do
+            src="experiments/results/xisa/${a#sources/tau-traj-}"
+            mkdir -p "$src"
+            mv "$a" "$src/$TRAJ"
+            python experiments/xisa/replay.py "$src/$TRAJ" --tag gha-${{ matrix.runner }}
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tau-replay-gha-${{ matrix.runner }}
+          path: experiments/results/xisa/gha-${{ matrix.runner }}/replay_t1_from_*_e5.json
+          retention-days: 90
